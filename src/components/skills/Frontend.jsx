@@ -31,7 +31,7 @@ const Frontend = () => {
 
                         <div>
                             <h3 className='skills__name'>Javascript</h3>
-                            <span className='skills__level'>Expert</span>
+                            <span className='skills__level'>Professional</span>
                         </div>
                     </div>
 
