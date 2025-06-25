@@ -35,7 +35,7 @@ const Footer = () => {
             <a href="https://www.linkedin.com/in/sanjay-purushothaman-5223aa224/" className='footer__social-link' target="_blank" rel='noreferrer'>
                 {/* <i className="bx bxl-twitter"></i> */}
                 {/* <i className="bx bx-x-twitter"></i> */}
-                {/* <i class="uil uil-twitter-alt"></i> */}
+                {/* <i className="uil uil-twitter-alt"></i> */}
                       {/* <svg
                           width="13"
                           height="13"
