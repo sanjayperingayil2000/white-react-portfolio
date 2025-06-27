@@ -6,23 +6,23 @@ export const Data = [
   {
     id: 1,
     image: Image1,
-    title: "Jhon Doe",
+    title: "Sreehari",
     description:
-      "A really good job, all aspects of the project were followed step by step and with good results.",
+      "Worked with me as a freelance developer and delivered a fully functional, responsive website tailored to client needs. Reliable, technically sound, and quick to adapt to feedback throughout the project.",
   },
   {
     id: 2,
     image: Image2,
-    title: "Harry Clinton",
+    title: "Jibu Thomas",
     description:
-      "A really good job, all aspects of the project were followed step by step and with good results.",
+      "A proactive and reliable team player. Consistently led development efforts with precision and played a key role in successful project deliveries within tight deadlines.",
   },
   {
     id: 3,
     image: Image3,
-    title: "Sara Cill",
+    title: "Sufair",
     description:
-      "A really good job, all aspects of the project were followed step by step and with good results.",
+      "Handled our brand’s visual identity and online presence with creativity and consistency. Designed impactful visuals and ran social campaigns that enhanced our engagement and reach.",
   },
 ];
 
