@@ -10,7 +10,7 @@ export const projectsData = [
   {
     id: 5,
     image: Work5,
-    title: "Web design",
+    title: "Ai application",
     category: "ui",
     path: "https://ui001-beta.vercel.app/"
   },
@@ -24,7 +24,7 @@ export const projectsData = [
   {
     id: 6,
     image: Work6,
-    title: "Web design",
+    title: "Coffee Shop",
     category: "ui",
     path: "https://coffeui.vercel.app/"
   },
