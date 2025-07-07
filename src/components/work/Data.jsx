@@ -4,7 +4,7 @@ import Work3 from '../../assets/hotel001.png'
 import Work4 from '../../assets/muikit.png'
 import Work5 from '../../assets/brainwaveui.png'
 import Work6 from '../../assets/coffeeui.png'
-
+import Work7 from '../../assets/logistics.png'
 
 export const projectsData = [
   {
@@ -48,6 +48,13 @@ export const projectsData = [
     title: "Dashboard UI",
     category: "ui",
     path: "https://dashboard001-kappa.vercel.app/dashboard"
+  },
+  {
+    id: 7,
+    image: Work7,
+    title: "Logistics Company",
+    category: "business",
+    path: "https://transportlogistics.vercel.app/"
   },
 ];
 
