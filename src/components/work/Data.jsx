@@ -5,6 +5,7 @@ import Work4 from '../../assets/muikit.png'
 import Work5 from '../../assets/brainwaveui.png'
 import Work6 from '../../assets/coffeeui.png'
 import Work7 from '../../assets/logistics.png'
+import Work8 from '../../assets/ikon.png'
 
 export const projectsData = [
   {
@@ -15,11 +16,18 @@ export const projectsData = [
     path: "https://ui001-beta.vercel.app/"
   },
   {
-    id: 3,
-    image: Work3,
-    title: "Hotel Booking Web",
+    id: 8,
+    image: Work8,
+    title: "Business service",
     category: "business",
-    path: "https://hotelbooking001.vercel.app/"
+    path: "https://ikonext.vercel.app/"
+  },
+  {
+    id: 7,
+    image: Work7,
+    title: "Logistics Company",
+    category: "business",
+    path: "https://transportlogistics.vercel.app/"
   },
   {
     id: 6,
@@ -36,6 +44,13 @@ export const projectsData = [
     path: "https://ecommerce002.vercel.app/"
   },
   {
+    id: 3,
+    image: Work3,
+    title: "Hotel Booking Web",
+    category: "business",
+    path: "https://hotelbooking001.vercel.app/"
+  },
+  {
     id: 1,
     image: Work1,
     title: "Blog web",
@@ -48,13 +63,6 @@ export const projectsData = [
     title: "Dashboard UI",
     category: "ui",
     path: "https://dashboard001-kappa.vercel.app/dashboard"
-  },
-  {
-    id: 7,
-    image: Work7,
-    title: "Logistics Company",
-    category: "business",
-    path: "https://transportlogistics.vercel.app/"
   },
 ];
 
