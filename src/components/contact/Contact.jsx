@@ -40,15 +40,26 @@ const Contact = () => {
                     <div className='contact__card'>
                         <i className='uil uil-whatsapp contact__card-icon'></i>
 
-                        <h3 className='contact__card-title'>Whatsapp</h3>
-                        <span className='contact__card-data'>906-138-1726</span>
+                        <h3 className='contact__card-title'>Whatsapp UAE</h3>
+                        <span className='contact__card-data'>+971-0588-393-705</span>
+
+                        <a href="https://api.whatsapp.com/send?phone=0588393705&text=Hello, more information!" className='contact__button'>Write me {" "}
+                        <i className='bx bx-arrow-right contact__button-icon'></i>
+                        </a>
+                    </div>
+
+                    <div className='contact__card'>
+                        <i className='uil uil-whatsapp contact__card-icon'></i>
+
+                        <h3 className='contact__card-title'>Whatsapp India</h3>
+                        <span className='contact__card-data'>+91-906-138-1726</span>
 
                         <a href="https://api.whatsapp.com/send?phone=9061381726&text=Hello, more information!" className='contact__button'>Write me {" "}
                         <i className='bx bx-arrow-right contact__button-icon'></i>
                         </a>
                     </div>
 
-                    <div className='contact__card'>
+                    {/* <div className='contact__card'>
                         <i className='uil uil-facebook-messenger-alt contact__card-icon'></i>
 
                         <h3 className='contact__card-title'>Messenger</h3>
@@ -57,7 +68,7 @@ const Contact = () => {
                         <a href="https://m.me/crypticalcoder" className='contact__button'>Write me {" "}
                         <i className='bx bx-arrow-right contact__button-icon'></i>
                         </a>
-                    </div>
+                    </div> */}
                 </div>
             </div>
 
