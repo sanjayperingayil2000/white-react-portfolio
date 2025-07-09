@@ -41,9 +41,9 @@ const Contact = () => {
                         <i className='uil uil-whatsapp contact__card-icon'></i>
 
                         <h3 className='contact__card-title'>Whatsapp UAE</h3>
-                        <span className='contact__card-data'>+971-0588-393-705</span>
+                        <span className='contact__card-data'>+971-588-393-705</span>
 
-                        <a href="https://api.whatsapp.com/send?phone=0588393705&text=Hello, more information!" className='contact__button'>Write me {" "}
+                        <a href="https://api.whatsapp.com/send?phone=971588393705&text=Hello, more information!" className='contact__button'>Write me {" "}
                         <i className='bx bx-arrow-right contact__button-icon'></i>
                         </a>
                     </div>
