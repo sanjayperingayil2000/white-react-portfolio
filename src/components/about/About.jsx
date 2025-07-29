@@ -17,7 +17,7 @@ const About = () => {
           <Info />
 
           <p className="about__description">
-            I'm a Full Stack Developer with a passion for creating dynamic and responsive web applications. I have experience in both front-end and back-end development, and I'm always eager to learn new technologies.
+            I'm a Full Stack Developer with a passion for creating dynamic and responsive web applications. My experience spans both front-end and back-end development, and I specialize as an n8n Developer for AI automation and AI agent generation. I'm always eager to learn new technologies and improve my skills.
           </p>
 
           <a download="" href={CV} className="button button--flex">
