@@ -55,7 +55,8 @@ const Data = () => {
                 </svg>
             </h1>
             <h3 className='home__subtitle'>Full Stack Developer</h3>
-            <p className='home__description'>I am a Full Stack Developer with a passion for creating dynamic and responsive web applications. I have experience in both front-end and back-end development, and I am always eager to learn new technologies and improve my skills.</p>
+            <h3 className='home__subtitle'>AI automation & agent (n8n)</h3>
+            <p className='home__description'>As a Full Stack Developer, I'm passionate about crafting dynamic and responsive web applications. I bring experience in both front-end and back-end development, complemented by my expertise as an n8n Developer focused on AI automation and AI agent generation. I'm consistently eager to explore new technologies and enhance my skill set.</p>
             
             <a href="#contact" className='button button--flex'>Say Hello
 
