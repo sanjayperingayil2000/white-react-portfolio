@@ -88,7 +88,7 @@ const Qualification = () => {
                             <h3 className='qualification__title'>Full Stack developer</h3>
                             <span className='qualification__subtitle'>JAH Transport by heavy & light trucks LLC</span>
                             <div className='qualification__calendar'>
-                                <i className='uil uil-calendar-alt'></i> 2025 - 2025
+                                <i className='uil uil-calendar-alt'></i> 2025 - 2026
                             </div>
                         </div>
 
