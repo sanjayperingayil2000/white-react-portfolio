@@ -30,6 +30,16 @@ To add a project, add one object to the array in `src/content/projects.ts` and p
 
 To replace the resume, overwrite `public/resume/Sanjay-Purushothaman-Resume.pdf`, or change `site.resumeUrl`. Every download button reads that one value.
 
+## Contact form
+
+The form sends email from the browser with EmailJS. Before sending, `/api/contact` checks the message: zod validation, a honeypot field, a minimum time to submit, and a per-IP rate limit.
+
+1. Copy `.env.example` to `.env.local` and fill in the three `NEXT_PUBLIC_EMAILJS_*` values.
+2. Add the same three variables in your Vercel project settings.
+3. In the EmailJS dashboard, make sure the email service (Gmail) is connected and the template uses `{{name}}`, `{{email}}`, `{{subject}}` and `{{message}}`.
+
+The WhatsApp number and greeting are in `src/content/socials.ts`.
+
 ## Design
 
 The design tokens are in `src/app/globals.css`. The spec and contrast checks are in `_audit/DESIGN_SYSTEM.md`.

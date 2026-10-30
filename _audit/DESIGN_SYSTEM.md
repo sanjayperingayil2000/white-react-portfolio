@@ -435,3 +435,10 @@ All tuning lives in `src/components/motion/config.ts`: a global `intensity` mult
 - **Reduced motion:** parallax is off. `MotionConfig reducedMotion="user"` removes the rise from reveals, leaving an opacity fade only.
 - **Touch (`pointer: coarse`):** parallax distances are halved, and orb parallax (the heaviest layers) is off. Reveals stay.
 - **Measured** in headless Chrome with CPU throttled 4× on a production build, scrolling the full page: p50, p95 and p99 frame times were 16.7ms, with no frames over 33ms and no long animation frames. Layout count matched the no-parallax baseline (44 vs 47), so there's no layout thrashing.
+
+---
+
+## 11. Additions for the contact form (Phase 7)
+
+- **`--danger`** (light `#b42318`, dark `#fda29b`): used only for form error text, invalid-field borders and the error icon. It's a semantic state colour, not a second accent. Measured on every surface in §1.5: light ≥ 6.00:1, dark ≥ 6.37:1 (the first dark choice, `#f97066`, failed at 4.44:1 on glass over a teal orb, so it was lightened).
+- **Floating WhatsApp button** (below `lg` only): an accent-filled circle at bottom right, with back-to-top stacked above it so the two never overlap.

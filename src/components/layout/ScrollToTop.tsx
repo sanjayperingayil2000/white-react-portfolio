@@ -17,7 +17,7 @@ export function ScrollToTop() {
       aria-hidden={!visible}
       tabIndex={visible ? undefined : -1}
       className={cn(
-        "glass-sm fixed right-(--gutter) bottom-6 z-40 grid size-12 place-items-center text-fg shadow-md hover:shadow-lg",
+        "glass-sm fixed right-(--gutter) bottom-22 z-40 grid size-12 lg:bottom-6 place-items-center text-fg shadow-md hover:shadow-lg",
         !visible && "pointer-events-none opacity-0",
       )}
     >

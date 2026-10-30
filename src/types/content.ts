@@ -152,13 +152,16 @@ export type SocialLink = {
 export type PhoneContact = {
   label: string;
   display: string;
+  /** E.164, for tel: links. */
+  tel: string;
   whatsappHref: string;
 };
 
 export type FormField = {
-  name: "name" | "email" | "project";
+  name: "name" | "email" | "subject" | "message";
   label: string;
   type: "text" | "email" | "textarea";
   placeholder: string;
+  required: boolean;
   autoComplete?: string;
 };

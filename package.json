@@ -10,6 +10,7 @@
     "typecheck": "next typegen && tsc --noEmit"
   },
   "dependencies": {
+    "@emailjs/browser": "^5.0.3",
     "clsx": "^2.1.1",
     "lucide-react": "^1.65.0",
     "motion": "^14.9.0",

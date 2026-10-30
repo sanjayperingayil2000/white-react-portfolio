@@ -1,17 +1,37 @@
 import { z } from "zod";
-import { contactSchema } from "@/lib/validation";
+import { contactSpam } from "@/lib/contact";
+import { clientIp, rateLimit } from "@/lib/rateLimit";
+import { contactRequestSchema, type ContactResponse } from "@/lib/validation";
+
+const json = (body: ContactResponse, init?: ResponseInit) => Response.json(body, init);
 
 /**
- * Placeholder until Phase 7 (email provider). Validates the payload so the
- * client contract is fixed now, then reports that sending isn't configured.
+ * Pre-send gate for the contact form. The email itself is sent from the browser
+ * through EmailJS (client-side by choice), and only after this route says
+ * `deliver: true`. It validates, rate-limits per IP and filters obvious bots.
  */
 export async function POST(request: Request) {
-  const body: unknown = await request.json().catch(() => null);
-  const parsed = contactSchema.safeParse(body);
-
-  if (!parsed.success) {
-    return Response.json({ ok: false, errors: z.flattenError(parsed.error).fieldErrors }, { status: 400 });
+  const limit = rateLimit(clientIp(request.headers), contactSpam.rateLimit.max, contactSpam.rateLimit.windowMs);
+  if (!limit.allowed) {
+    return json(
+      { ok: false, reason: "rate-limited", retryAfterSeconds: limit.retryAfterSeconds },
+      { status: 429, headers: { "Retry-After": String(limit.retryAfterSeconds) } },
+    );
   }
 
-  return Response.json({ ok: false, error: "Contact form is not configured yet." }, { status: 501 });
+  const body: unknown = await request.json().catch(() => null);
+  if (body === null || typeof body !== "object") return json({ ok: false, reason: "bad-request" }, { status: 400 });
+
+  const parsed = contactRequestSchema.safeParse(body);
+  if (!parsed.success) {
+    const { fieldErrors } = z.flattenError(parsed.error);
+    return json({ ok: false, reason: "invalid", errors: fieldErrors }, { status: 400 });
+  }
+
+  // Bots: report success so they don't retry, but tell the client not to send.
+  const { website, startedAt } = parsed.data;
+  const tooFast = Date.now() - startedAt < contactSpam.minSubmitMs;
+  if (website !== "" || tooFast) return json({ ok: true, deliver: false });
+
+  return json({ ok: true, deliver: true });
 }

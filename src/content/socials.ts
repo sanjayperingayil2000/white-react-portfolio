@@ -1,3 +1,4 @@
+import { whatsappLink } from "@/lib/utils";
 import type { PhoneContact, SocialLink } from "@/types/content";
 
 export const email = {
@@ -5,21 +6,27 @@ export const email = {
   href: "mailto:sanjayperingayil@gmail.com",
 } as const;
 
-const whatsappText = encodeURIComponent("Hello, more information!");
+/** Pre-filled WhatsApp greeting, carried over from the old site. */
+export const whatsappGreeting = "Hello, more information!";
 
 export const phones: PhoneContact[] = [
   {
     label: "Whatsapp India",
     display: "+91 90613 81726",
-    whatsappHref: `https://api.whatsapp.com/send?phone=919061381726&text=${whatsappText}`,
+    tel: "+919061381726",
+    whatsappHref: whatsappLink("919061381726", whatsappGreeting),
   },
   {
     // O22, old-site only
     label: "Whatsapp UAE",
     display: "+971-588-393-705",
-    whatsappHref: `https://api.whatsapp.com/send?phone=971588393705&text=${whatsappText}`,
+    tel: "+971588393705",
+    whatsappHref: whatsappLink("971588393705", whatsappGreeting),
   },
 ];
+
+/** Number used by the "Chat on WhatsApp" buttons (contact section and mobile floating button). */
+export const primaryWhatsapp = phones[0];
 
 export const socials: SocialLink[] = [
   { network: "linkedin", label: "LinkedIn", href: "https://www.linkedin.com/in/sanjay-purushothaman-5223aa224/" },

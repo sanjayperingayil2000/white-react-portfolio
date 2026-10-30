@@ -93,11 +93,26 @@ export const projectFilters: { value: ProjectCategory | "all"; label: string }[]
   { value: "blog", label: "Blog" },
 ];
 
+/** Name/Mail labels and placeholders are from the old site; "project" became "message" (Phase 7). */
 export const contactForm: FormField[] = [
-  { name: "name", label: "Name", type: "text", placeholder: "Insert your name", autoComplete: "name" },
-  { name: "email", label: "Mail", type: "email", placeholder: "Insert your email", autoComplete: "email" },
-  { name: "project", label: "Project", type: "textarea", placeholder: "Write your project" },
+  { name: "name", label: "Name", type: "text", placeholder: "Insert your name", required: true, autoComplete: "name" },
+  { name: "email", label: "Mail", type: "email", placeholder: "Insert your email", required: true, autoComplete: "email" },
+  { name: "subject", label: "Subject", type: "text", placeholder: "What is it about?", required: false },
+  { name: "message", label: "Message", type: "textarea", placeholder: "Write your project", required: true },
 ];
+
+/** Contact form states (Phase 7). */
+export const contactCopy = {
+  optional: "optional",
+  sending: "Sending…",
+  success: "Thanks — your message is on its way. I'll get back to you soon.",
+  error: "Sorry, your message couldn't be sent.",
+  rateLimited: "You've sent a few messages already. Please try again in a few minutes.",
+  fallbackPrefix: "You can email me directly at",
+  fallbackSubject: "Portfolio enquiry",
+  chatOnWhatsapp: "Chat on WhatsApp",
+  call: "Call",
+} as const;
 
 export const footer = {
   title: "Sanjay P Purushothaman",

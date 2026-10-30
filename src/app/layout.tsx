@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Instrument_Serif } from "next/font/google";
 import { BackgroundOrbs } from "@/components/layout/BackgroundOrbs";
+import { FloatingWhatsApp } from "@/components/layout/FloatingWhatsApp";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import { ScrollToTop } from "@/components/layout/ScrollToTop";
@@ -72,6 +73,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             <main>{children}</main>
             <Footer />
             <ScrollToTop />
+            <FloatingWhatsApp />
           </MotionProvider>
         </ThemeProvider>
       </body>
