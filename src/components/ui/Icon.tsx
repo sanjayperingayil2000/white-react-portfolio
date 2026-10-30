@@ -15,7 +15,9 @@ import {
   Mail,
   MapPin,
   MessageSquare,
+  Milestone,
   PenTool,
+  ScrollText,
   User,
   type LucideProps,
 } from "lucide-react";
@@ -40,6 +42,8 @@ const icons = {
   "map-pin": MapPin,
   languages: Languages,
   "badge-check": BadgeCheck,
+  milestone: Milestone,
+  "scroll-text": ScrollText,
 } satisfies Record<IconName, React.ComponentType<LucideProps>>;
 
 type IconProps = LucideProps & { name: IconName };

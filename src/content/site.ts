@@ -22,24 +22,29 @@ export const site = {
 
 export const nav: { logo: Link; items: NavItem[] } = {
   logo: { label: "Sanjay", href: hash(SECTION_IDS.home) },
-  // Old-site nav labels and targets, ordered to follow the new page order.
+  // Page order. The desktop bar keeps 7 links (Home is the logo; Services is reachable
+  // from the mobile menu and by scrolling); the mobile menu shows all 9 as a 3×3 grid.
   items: [
-    { label: "Home", href: hash(SECTION_IDS.home), icon: "home" },
-    { label: "About", href: hash(SECTION_IDS.about), icon: "user" },
-    { label: "Portfolio", href: hash(SECTION_IDS.portfolio), icon: "image" },
-    { label: "Skills", href: hash(SECTION_IDS.skills), icon: "file" },
-    { label: "Services", href: hash(SECTION_IDS.services), icon: "briefcase" },
-    { label: "Contact", href: hash(SECTION_IDS.contact), icon: "message" },
+    { label: "Home", href: hash(SECTION_IDS.home), icon: "home", desktop: false },
+    { label: "About", href: hash(SECTION_IDS.about), icon: "user", desktop: true },
+    { label: "Experience", href: hash(SECTION_IDS.experience), icon: "milestone", desktop: true },
+    { label: "Portfolio", href: hash(SECTION_IDS.portfolio), icon: "image", desktop: true },
+    { label: "Skills", href: hash(SECTION_IDS.skills), icon: "file", desktop: true },
+    { label: "Education", href: hash(SECTION_IDS.education), icon: "graduation-cap", desktop: true },
+    { label: "Certificates", href: hash(SECTION_IDS.certificates), icon: "award", desktop: true },
+    { label: "Services", href: hash(SECTION_IDS.services), icon: "briefcase", desktop: false },
+    { label: "Contact", href: hash(SECTION_IDS.contact), icon: "message", desktop: true },
   ],
 };
 
 export const sections = {
   about: { title: "About Me", subtitle: "My introduction" },
-  // The old "Qualification" section is split into Experience and Education.
+  // The old "Qualification" section is split into Experience, Education and Certificates.
   experience: { title: "Experience", subtitle: "My personal journey" },
   portfolio: { title: "Portfolio", subtitle: "Most recent works" },
   skills: { title: "Skills", subtitle: "My technical level" },
-  education: { title: "Qualification", subtitle: "Education" },
+  education: { title: "Education", subtitle: "Academic background" },
+  certificates: { title: "Certificates", subtitle: "Credentials" },
   services: { title: "Services", subtitle: "What I offer" },
   testimonials: { title: "My clients say", subtitle: "Testimonial" },
   contact: { title: "Get in touch", subtitle: "Contact Me" },
@@ -59,9 +64,10 @@ export const labels = {
   contactLeftHeading: "Talk to me",
   contactFormHeading: "Write me your project",
   emailCardTitle: "Email",
-  educationHeading: "Education",
-  certificationsHeading: "Certifications",
   currently: "Currently",
+  viewCertificate: "View",
+  verifyCredential: "Verify",
+  certificatePdf: "PDF",
   // Screen-reader-only labels
   location: "Location",
   languages: "Languages",
@@ -98,6 +104,7 @@ export const footer = {
   links: [
     { label: "About", href: hash(SECTION_IDS.about) },
     { label: "Projects", href: hash(SECTION_IDS.portfolio) },
+    { label: "Services", href: hash(SECTION_IDS.services) },
     { label: "Testimonials", href: hash(SECTION_IDS.testimonials) },
   ] satisfies Link[],
   copyright: "© Sanjay P Purushothaman. All rights reserved",

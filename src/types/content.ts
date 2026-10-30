@@ -22,7 +22,9 @@ export type IconName =
   | "mail"
   | "map-pin"
   | "languages"
-  | "badge-check";
+  | "badge-check"
+  | "milestone"
+  | "scroll-text";
 
 /** Brand logos rendered with components/ui/BrandIcon.tsx. */
 export type BrandName = "github" | "linkedin" | "instagram" | "facebook" | "whatsapp";
@@ -40,7 +42,11 @@ export type Link = {
   href: string;
 };
 
-export type NavItem = Link & { icon: IconName };
+export type NavItem = Link & {
+  icon: IconName;
+  /** Shown in the desktop nav bar; every item is shown in the mobile menu. */
+  desktop: boolean;
+};
 
 export type SectionCopy = {
   title: string;
@@ -109,10 +115,17 @@ export type Education = {
 };
 
 export type Certification = {
+  slug: string;
   title: string;
   issuer: string;
   topics?: string;
   date?: string;
+  /** Scan or screenshot of the certificate, shown as the card preview and in the lightbox. */
+  image: ImageAsset | null;
+  /** Public verification page, if the issuer provides one. */
+  credentialUrl: string | null;
+  /** PDF copy under public/, e.g. "/certificates/genai.pdf". */
+  file: string | null;
 };
 
 export type Service = {

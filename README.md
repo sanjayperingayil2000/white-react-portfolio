@@ -21,7 +21,8 @@ All site content lives in typed files under `src/content/`. Components only rend
 | `experience.ts` | Roles (newest first) |
 | `projects.ts` | Featured (FDE) projects and the gallery of web projects |
 | `skills.ts` | Skill groups |
-| `education.ts` | Education and certifications |
+| `education.ts` | Education |
+| `certificates.ts` | Certificates showcase (image, verify link, PDF per certificate) |
 | `socials.ts` | Email, phone/WhatsApp, social links |
 | `services.ts`, `testimonials.ts` | Services and testimonials |
 

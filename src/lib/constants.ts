@@ -7,6 +7,7 @@ export const SECTION_IDS = {
   portfolio: "portfolio",
   skills: "skills",
   education: "education",
+  certificates: "certificates",
   services: "services",
   testimonials: "testimonials",
   contact: "contact",

@@ -25,8 +25,8 @@ export function Navbar() {
           {nav.logo.label}
         </a>
 
-        <ul className="hidden items-center gap-1 md:flex">
-          {nav.items.map((item) => {
+        <ul className="hidden items-center lg:flex">
+          {nav.items.filter((item) => item.desktop).map((item) => {
             const isActive = active === item.href.slice(1);
             return (
               <li key={item.href}>
@@ -34,7 +34,7 @@ export function Navbar() {
                   href={item.href}
                   aria-current={isActive ? "location" : undefined}
                   className={cn(
-                    "rounded-full px-3 py-2 text-sm font-medium",
+                    "rounded-full px-2.5 py-2 text-sm font-medium xl:px-3",
                     isActive ? "text-accent" : "text-muted hover:text-fg",
                   )}
                 >

@@ -1,4 +1,4 @@
-import type { Certification, Education } from "@/types/content";
+import type { Education } from "@/types/content";
 
 /** Newest first. Resume entries verbatim; Diploma and High School are old-site only (O1, O2). */
 export const education: Education[] = [
@@ -28,18 +28,5 @@ export const education: Education[] = [
     title: "High School",
     institution: "Kerala State Board",
     dates: "2015 – 2017",
-  },
-];
-
-export const certifications: Certification[] = [
-  {
-    title: "Certificate — Dhaga & Co. Client Engagement",
-    topics: "Agentic Design Patterns, LLM Orchestration, Problem Discovery, MVP Engineering",
-    issuer: "FDE Academy",
-    date: "Oct 2026",
-  },
-  {
-    title: "Generative AI Certification",
-    issuer: "Skill India & National Skill Development Corporation (NSDC)",
   },
 ];
