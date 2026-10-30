@@ -383,3 +383,51 @@ html:has(dialog[open]) {
     --glass-blur: 12px;
   }
 }
+
+/* ==========================================================================
+   Restored old-site behaviours (inventory G4, G5)
+   ========================================================================== */
+
+/* G4: the hero portrait's slow blob morph (old `profile__animate`, 8s). Applied to the
+   glass frame and the image with the same timing, so the two edges stay concentric. */
+.hero-morph {
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-morph {
+    animation: profile-morph 8s ease-in-out 1s infinite;
+  }
+}
+
+@keyframes profile-morph {
+  0%,
+  100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+  50% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+  }
+}
+
+/* G5: the scroll-mouse wheel (old `.wheel`, 2s loop). */
+@media (prefers-reduced-motion: no-preference) {
+  .scroll-wheel {
+    animation: scroll-wheel 2s ease infinite;
+  }
+}
+
+@keyframes scroll-wheel {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  60% {
+    transform: translateY(5px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+}

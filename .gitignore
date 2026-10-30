@@ -43,3 +43,9 @@ next-env.d.ts
 
 # source files for the build (the resume is copied into public/resume)
 /_input/
+
+# playwright
+/.next-e2e/
+/test-results/
+/playwright-report/
+/blob-report/

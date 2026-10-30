@@ -8,7 +8,10 @@ npm run dev        # http://localhost:3000
 npm run typecheck
 npm run lint
 npm run build
+npm test           # Playwright: unit + desktop + mobile smoke tests (builds into .next-e2e)
 ```
+
+The first time, install the test browser with `npx playwright install chromium`. The tests build their own copy of the site with mock EmailJS keys and mock the EmailJS API, so they never send real email or touch `.next`.
 
 ## Editing content
 

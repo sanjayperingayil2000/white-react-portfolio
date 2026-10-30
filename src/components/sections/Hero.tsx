@@ -1,4 +1,4 @@
-import { ArrowDown, Send } from "lucide-react";
+import { Send } from "lucide-react";
 import Image from "next/image";
 import { Parallax } from "@/components/motion/Parallax";
 import { BrandIcon } from "@/components/ui/BrandIcon";
@@ -70,7 +70,7 @@ export function Hero() {
         </Parallax>
 
         <Parallax preset="heroImage" className="relative mx-auto w-full max-w-[440px]">
-          <div className="glass p-2">
+          <div className="glass hero-morph overflow-hidden p-2">
             <Image
               src={profile.heroImage.src}
               width={profile.heroImage.width}
@@ -79,7 +79,7 @@ export function Hero() {
               preload
               // Rendered width: 424px at xl, ~38vw beside the text at lg, up to 424px stacked, else viewport minus gutters and frame.
               sizes="(min-width: 1280px) 424px, (min-width: 1024px) 38vw, (min-width: 640px) 424px, calc(100vw - 3rem)"
-              className="aspect-square w-full rounded-[calc(var(--radius-xl)-0.5rem)] object-cover"
+              className="hero-morph aspect-square w-full object-cover"
             />
           </div>
 
@@ -99,7 +99,11 @@ export function Hero() {
           href={hash(SECTION_IDS.about)}
           className="inline-flex min-h-11 items-center gap-2 text-sm font-medium text-muted hover:text-fg"
         >
-          <ArrowDown className="size-4" strokeWidth={1.5} aria-hidden="true" />
+          {/* Scroll mouse with an animated wheel (old-site G5). */}
+          <svg viewBox="0 0 24 24" className="size-5" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+            <rect x="6" y="3" width="12" height="18" rx="6" />
+            <line className="scroll-wheel" x1="12" y1="7" x2="12" y2="10" strokeLinecap="round" />
+          </svg>
           {labels.scrollDown}
         </a>
       </Container>

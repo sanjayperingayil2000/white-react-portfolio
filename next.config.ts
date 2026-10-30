@@ -1,7 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // Playwright builds into its own directory (with mock EmailJS keys) so it never
+  // overwrites the real .next build. See playwright.config.ts.
+  distDir: process.env.NEXT_DIST_DIR || ".next",
   cacheComponents: true,
   partialPrefetching: true,
   turbopack: {
