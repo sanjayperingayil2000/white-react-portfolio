@@ -286,6 +286,8 @@ All assets live in `src/assets/` (43 files). `public/` contains only `index.html
 
 ### D1. In use — backed up to `_audit/assets-backup/` (15 files, verified byte-identical)
 
+> **Phase 11:** the backup folder was removed when these docs moved to `docs/`. Every file was byte-identical to the old `src/assets/` file, so the originals are still in git: `git show 567f299:src/assets/<file>`.
+
 | File | Used by | How |
 |---|---|---|
 | `snjy07.jpg` | Home hero | CSS `background: url(...)` in `home.css:63` |

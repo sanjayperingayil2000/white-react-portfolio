@@ -1,3 +1,4 @@
+import { statSync } from "node:fs";
 import { expect, test, type Page } from "@playwright/test";
 
 const RESUME_URL = "/resume/Sanjay-Purushothaman-Resume.pdf";
@@ -50,7 +51,8 @@ test.describe("resume", () => {
     expect(res.headers()["content-type"]).toContain("application/pdf");
     const body = await res.body();
     expect(body.subarray(0, 5).toString()).toBe("%PDF-");
-    expect(body.length).toBe(126_616); // byte size of _input/resume-new.pdf
+    // Same bytes as the file in public/, so replacing the resume never breaks this test.
+    expect(body.length).toBe(statSync(`public${RESUME_URL}`).size);
   });
 
   test("every download link points to it with the right file name", async ({ page }) => {

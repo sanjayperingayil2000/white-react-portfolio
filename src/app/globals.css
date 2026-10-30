@@ -4,7 +4,7 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 /* ==========================================================================
-   Design tokens — see _audit/DESIGN_SYSTEM.md (approved 2026-10-30)
+   Design tokens — see docs/DESIGN_SYSTEM.md (approved 2026-10-30)
    ========================================================================== */
 
 :root {

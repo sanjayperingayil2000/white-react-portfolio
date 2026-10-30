@@ -3,7 +3,7 @@
     "generatedAt": "2026-10-30",
     "status": "DRAFT — awaiting approval of OLD-ONLY (O*), UPDATED (U*) and CORRECTIONS (C*) items in RESUME_MERGE.md",
     "resumeSource": "Sanjay_P_Purushothaman_FDE_Resume.pdf (chat attachment). _input/resume-new.pdf not present at generation time — re-verify when added.",
-    "oldSiteSource": "_audit/content-snapshot.json",
+    "oldSiteSource": "docs/content-snapshot.json",
     "rule": "Resume wins on conflicts; old-only items kept unless dropped.",
     "sourceValues": {
       "resume": "taken from the new resume",
@@ -11,7 +11,7 @@
       "both": "on both; resume version used where they differ",
       "derived": "rearranged from resume text, no new facts — needs approval"
     },
-    "assetDir": "_audit/assets-backup/",
+    "assetDir": "removed in Phase 11 — originals in git at 567f299:src/assets/",
     "todoMarker": "TODO"
   },
 

@@ -3,7 +3,7 @@ import type { FormField, Link, NavItem, ProjectCategory, SectionCopy } from "@/t
 
 /**
  * Site-wide settings and UI copy. Section headings, button labels and form
- * labels are carried over from the old site (see _audit/RESUME_MERGE.md, O26).
+ * labels are carried over from the old site (see docs/RESUME_MERGE.md, O26).
  */
 export const site = {
   /** Production URL, taken from the "Portfolio" link in the resume PDF. */

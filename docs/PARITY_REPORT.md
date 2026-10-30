@@ -167,7 +167,7 @@ The 28 unused old assets (D2) were never shown on the old site, so none were car
 | Download links | 4 (navbar, hero, mobile menu, footer), all `href="/resume/Sanjay-Purushothaman-Resume.pdf"` with `download="Sanjay-Purushothaman-Resume.pdf"`. Also covered by a Playwright test ✅ |
 | Served | `200 application/pdf` ✅ |
 | Old file names in code (`grep -i "sanjay-resume\|resume-2025\|resume-2026\|third2025"`, excluding `_audit/`, `node_modules/` and build output) | **0 matches** ✅ |
-| Old names inside `_audit/` | Expected: the inventory, merge docs, snapshot and the Phase 1 backup copy `_audit/assets-backup/sanjay-resume-2026.pdf`. None of these are part of the build. |
+| Old names inside `_audit/` | Expected: the inventory, merge docs, snapshot and the Phase 1 backup copy `_audit/assets-backup/sanjay-resume-2026.pdf`. None of these are part of the build. | *(Phase 11: moved to `docs/`; the backup copy of the old PDF was deleted, so only the docs mention the old name.)*
 
 ---
 
