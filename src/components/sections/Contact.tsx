@@ -1,5 +1,4 @@
 import { ArrowRight, Send } from "lucide-react";
-import { Reveal } from "@/components/motion/Reveal";
 import { BrandIcon } from "@/components/ui/BrandIcon";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
@@ -17,13 +16,13 @@ const fieldClasses =
 
 export function Contact() {
   const cards = [
-    { key: "email", title: labels.emailCardTitle, value: email.address, href: email.href, icon: <Icon name="mail" className="size-6 text-accent" />, external: false },
+    { key: "email", title: labels.emailCardTitle, value: email.address, href: email.href, icon: <Icon name="mail" className="size-6 text-fg" />, external: false },
     ...phones.map((p) => ({
       key: p.label,
       title: p.label,
       value: p.display,
       href: p.whatsappHref,
-      icon: <BrandIcon name="whatsapp" className="size-6 text-accent" />,
+      icon: <BrandIcon name="whatsapp" className="size-6 text-fg" />,
       external: true,
     })),
   ];
@@ -34,7 +33,7 @@ export function Contact() {
         <SectionHeading id="contact-title" {...sections.contact} />
 
         <div className="grid gap-10 md:grid-cols-[2fr_3fr]">
-          <Reveal>
+          <div>
             <h3 className="mb-6 text-center text-lg font-semibold text-fg md:text-left">{labels.contactLeftHeading}</h3>
             <ul className="grid gap-4">
               {cards.map((card) => (
@@ -54,9 +53,9 @@ export function Contact() {
                 </GlassCard>
               ))}
             </ul>
-          </Reveal>
+          </div>
 
-          <Reveal delay={0.06}>
+          <div>
             <h3 className="mb-6 text-center text-lg font-semibold text-fg md:text-left">{labels.contactFormHeading}</h3>
             {/* TODO(Phase 7): wire to /api/contact with the chosen email provider. Submit is disabled until then. */}
             <GlassCard as="div">
@@ -92,7 +91,7 @@ export function Contact() {
                 </Button>
               </form>
             </GlassCard>
-          </Reveal>
+          </div>
         </div>
       </Container>
     </section>

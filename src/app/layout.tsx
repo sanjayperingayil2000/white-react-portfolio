@@ -3,6 +3,7 @@ import { Geist, Instrument_Serif } from "next/font/google";
 import { BackgroundOrbs } from "@/components/layout/BackgroundOrbs";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
+import { ScrollToTop } from "@/components/layout/ScrollToTop";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { profile } from "@/content/profile";
 import { site } from "@/content/site";
@@ -63,6 +64,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <Navbar />
           <main>{children}</main>
           <Footer />
+          <ScrollToTop />
         </ThemeProvider>
       </body>
     </html>

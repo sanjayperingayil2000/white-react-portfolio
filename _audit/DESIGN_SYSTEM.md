@@ -411,3 +411,14 @@ If triggered by keyboard (no pointer coordinates), the circle starts from the ce
 - **Targets:** at least 44×44px for touch.
 - Everything listed in sections 1.5, 2.2 and 5 (contrast, transparency fallback, reduced motion) is a requirement, not a suggestion.
 - **Semantic structure:** landmarks (`header`, `nav`, `main`, `footer`), one `h1`, and headings in order.
+
+---
+
+## 9. Additions during the UI build (Phase 5)
+
+- **`--text-hero`** `clamp(3.5rem, 1.152rem + 10.435vw, 9.5rem)` (56 → 152px): used only for the hero name. It sits above `--text-5xl`.
+- **`--surface-glass-strong`** (light: white @ 80%; dark: `rgb(24 24 27 / 0.75)`): the navbar background once the page scrolls. It's more opaque than `--surface-glass` and moves toward each theme's text-contrasting extreme, so every §1.5 ratio still holds or improves.
+- **Theme toggle behaviour (changed from the 3-state cycle in §6.1):** the toggle follows the OS by default, and each click flips the appearance. If the chosen appearance matches the OS, the preference goes back to `system`. Every click now changes what you see, and "system" is still the default.
+- **Sun ↔ moon icon:** an SVG mask morph using only transforms and opacity. Its state comes from the `.dark` class, so it's correct before hydration. Transitions turn off under reduced motion.
+- **Accent usage, tightened:** section eyebrows, icons, dates and bullet markers are neutral. The accent is kept for CTAs, links, the active nav item and filter, the current-role timeline node and date, the availability dot and certification badges.
+- **Dialog and mobile menu surface:** `--surface-glass-fallback` (near-opaque) over a dimmed, blurred backdrop, so their text doesn't depend on what's behind them.

@@ -12,7 +12,7 @@ export function SectionHeading({ id, title, subtitle, align = "center", classNam
   return (
     <header className={cn("mb-12 sm:mb-16", align === "center" && "text-center", className)}>
       {subtitle && (
-        <p className="mb-3 text-xs font-medium tracking-[0.08em] text-accent uppercase">{subtitle}</p>
+        <p className="mb-3 text-xs font-medium tracking-[0.08em] text-muted uppercase">{subtitle}</p>
       )}
       <h2 id={id} className="font-display text-4xl leading-[1.05] tracking-[-0.015em] text-balance text-fg">
         {title}

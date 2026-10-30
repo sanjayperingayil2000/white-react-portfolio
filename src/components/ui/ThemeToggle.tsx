@@ -1,41 +1,37 @@
 "use client";
 
-import { Monitor, Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
-import { useSyncExternalStore } from "react";
+import { useId } from "react";
+import { labels } from "@/content/site";
+import { useMounted } from "@/lib/hooks";
 import { cn } from "@/lib/utils";
 
-type ThemeChoice = "light" | "dark" | "system";
+const RAYS = Array.from({ length: 8 }, (_, i) => {
+  const a = (i * Math.PI) / 4;
+  const r = (n: number) => Math.round(n * 100) / 100;
+  return { x1: r(12 + Math.cos(a) * 8), y1: r(12 + Math.sin(a) * 8), x2: r(12 + Math.cos(a) * 10.5), y2: r(12 + Math.sin(a) * 10.5) };
+});
 
-const order: ThemeChoice[] = ["light", "dark", "system"];
-const icons = { light: Sun, dark: Moon, system: Monitor } as const;
-
-// True on the client, false during SSR — avoids rendering a theme-dependent icon on the server.
-const useMounted = () =>
-  useSyncExternalStore(
-    () => () => {},
-    () => true,
-    () => false,
-  );
-
-const prefersDark = () => window.matchMedia("(prefers-color-scheme: dark)").matches;
-
+/**
+ * Light/dark toggle. Follows the OS by default; clicking switches to the opposite
+ * appearance, and choosing the one that matches the OS goes back to "system".
+ */
 export function ThemeToggle({ className }: { className?: string }) {
-  const { theme, setTheme } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
   const mounted = useMounted();
+  const maskId = `theme-mask-${useId().replace(/[^\w-]/g, "")}`;
 
-  const current: ThemeChoice = mounted && order.includes(theme as ThemeChoice) ? (theme as ThemeChoice) : "system";
-  const next = order[(order.indexOf(current) + 1) % order.length];
-  const Icon = icons[current];
+  const label = !mounted ? labels.toggleTheme : resolvedTheme === "dark" ? labels.switchToLight : labels.switchToDark;
 
-  function switchTheme(event: React.MouseEvent<HTMLButtonElement>) {
+  function toggle(event: React.MouseEvent<HTMLButtonElement>) {
     const root = document.documentElement;
-    const willBeDark = next === "dark" || (next === "system" && prefersDark());
-    const changesAppearance = willBeDark !== root.classList.contains("dark");
+    const toDark = !root.classList.contains("dark");
+    const osDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const next = toDark === osDark ? "system" : toDark ? "dark" : "light";
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    if (!document.startViewTransition || reduceMotion || !changesAppearance) {
-      setTheme(next); // falls back to the CSS colour transition
+    if (!document.startViewTransition || reduceMotion) {
+      setTheme(next); // colour cross-fade via CSS transitions
       return;
     }
 
@@ -47,33 +43,44 @@ export function ThemeToggle({ className }: { className?: string }) {
 
     root.classList.add("theme-vt");
     const transition = document.startViewTransition(() => {
-      root.classList.toggle("dark", willBeDark); // sync, so the "after" snapshot is correct
-      root.classList.toggle("light", !willBeDark);
+      root.classList.toggle("dark", toDark); // sync, so the "after" snapshot is correct
+      root.classList.toggle("light", !toDark);
       setTheme(next); // next-themes stays the source of truth and persists the choice
     });
 
-    transition.ready.then(() => {
-      root.animate(
-        { clipPath: [`circle(0px at ${x}px ${y}px)`, `circle(${radius}px at ${x}px ${y}px)`] },
-        { duration: 450, easing: "cubic-bezier(0.65, 0, 0.35, 1)", pseudoElement: "::view-transition-new(root)" },
-      );
-    });
-    transition.finished.finally(() => root.classList.remove("theme-vt"));
+    // `ready` rejects if the browser skips the transition; the theme has still changed.
+    transition.ready
+      .then(() => {
+        root.animate(
+          { clipPath: [`circle(0px at ${x}px ${y}px)`, `circle(${radius}px at ${x}px ${y}px)`] },
+          { duration: 450, easing: "cubic-bezier(0.65, 0, 0.35, 1)", pseudoElement: "::view-transition-new(root)" },
+        );
+      })
+      .catch(() => {});
+    void transition.finished.finally(() => root.classList.remove("theme-vt"));
   }
 
   return (
     <button
       type="button"
-      onClick={switchTheme}
-      aria-label={mounted ? `Theme: ${current}. Switch to ${next}` : "Switch theme"}
-      title={mounted ? `Theme: ${current}` : undefined}
-      className={cn(
-        "grid size-11 place-items-center rounded-full text-fg hover:bg-fg/5",
-        className,
-      )}
+      onClick={toggle}
+      aria-label={label}
+      title={mounted ? label : undefined}
+      className={cn("grid size-11 place-items-center rounded-full text-fg hover:bg-fg/5", className)}
     >
-      {/* Same-size placeholder until mounted, so there is no layout shift or hydration mismatch. */}
-      {mounted ? <Icon className="size-5" strokeWidth={1.5} aria-hidden="true" /> : <span className="size-5" />}
+      {/* Sun in light mode, moon in dark: the cutout slides over the core and the rays fold away. */}
+      <svg viewBox="0 0 24 24" className="theme-icon size-5" aria-hidden="true">
+        <mask id={maskId}>
+          <rect width="24" height="24" fill="white" />
+          <circle className="theme-icon-cutout" cx="24" cy="10" r="6" fill="black" />
+        </mask>
+        <circle className="theme-icon-core" cx="12" cy="12" r="8" fill="currentColor" mask={`url(#${maskId})`} />
+        <g className="theme-icon-rays" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+          {RAYS.map((ray) => (
+            <line key={`${ray.x1}-${ray.y1}`} {...ray} />
+          ))}
+        </g>
+      </svg>
     </button>
   );
 }

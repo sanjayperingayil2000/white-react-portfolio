@@ -1,5 +1,5 @@
 import { hash, SECTION_IDS } from "@/lib/constants";
-import type { FormField, Link, NavItem, SectionCopy } from "@/types/content";
+import type { FormField, Link, NavItem, ProjectCategory, SectionCopy } from "@/types/content";
 
 /**
  * Site-wide settings and UI copy. Section headings, button labels and form
@@ -48,21 +48,44 @@ export const sections = {
 export const labels = {
   sayHello: "Say Hello",
   scrollDown: "Scroll Down",
-  downloadCv: "Download CV",
+  // Replaces the old site's "Download CV" (Phase 5 brief).
+  downloadResume: "Download Resume",
+  resumeShort: "Resume",
   viewMore: "View More",
   demo: "Demo",
+  repo: "Code",
   writeMe: "Write me",
   sendMessage: "Send Message",
   contactLeftHeading: "Talk to me",
   contactFormHeading: "Write me your project",
   emailCardTitle: "Email",
+  educationHeading: "Education",
+  certificationsHeading: "Certifications",
+  currently: "Currently",
   // Screen-reader-only labels
   location: "Location",
   languages: "Languages",
   techStack: "Tech stack",
+  primaryNav: "Primary",
+  openMenu: "Open menu",
+  closeMenu: "Close menu",
+  close: "Close",
+  backToTop: "Back to top",
+  filterProjects: "Filter projects by category",
+  testimonialsList: "Testimonials",
+  toggleTheme: "Toggle theme",
+  switchToDark: "Switch to dark theme",
+  switchToLight: "Switch to light theme",
 } as const;
 
-export const projectFilters = ["all", "ai", "ui", "business", "blog"] as const;
+/** Old-site filters (all / ui / business / blog) plus "ai" for the FDE projects. */
+export const projectFilters: { value: ProjectCategory | "all"; label: string }[] = [
+  { value: "all", label: "All" },
+  { value: "ai", label: "AI" },
+  { value: "ui", label: "UI" },
+  { value: "business", label: "Business" },
+  { value: "blog", label: "Blog" },
+];
 
 export const contactForm: FormField[] = [
   { name: "name", label: "Name", type: "text", placeholder: "Insert your name", autoComplete: "name" },

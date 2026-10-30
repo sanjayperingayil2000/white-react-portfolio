@@ -3,6 +3,8 @@ import Image from "next/image";
 import { BrandIcon } from "@/components/ui/BrandIcon";
 import { ButtonLink } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
+import { ResumeButton } from "@/components/ui/ResumeButton";
+import { experience } from "@/content/experience";
 import { profile } from "@/content/profile";
 import { labels } from "@/content/site";
 import { heroSocials } from "@/content/socials";
@@ -10,54 +12,62 @@ import { hash, SECTION_IDS } from "@/lib/constants";
 import { externalLinkProps } from "@/lib/utils";
 
 export function Hero() {
-  return (
-    <section id={SECTION_IDS.home} aria-labelledby="hero-title" className="pt-36 pb-(--space-section) sm:pt-44">
-      <Container className="grid items-center gap-12 md:grid-cols-[1.2fr_1fr]">
-        <div>
-          <h1
-            id="hero-title"
-            className="flex items-center gap-3 font-display text-5xl leading-none tracking-[-0.02em] text-fg"
-          >
-            {profile.shortName}
-            <Image src="/images/hand.svg" alt="" width={48} height={48} className="size-[0.8em]" unoptimized />
-          </h1>
+  const currentRole = experience.find((job) => job.end === null);
 
-          <p className="mt-5 flex flex-wrap gap-x-3 gap-y-1 text-lg font-medium text-fg">
-            {profile.headline.map((line, i) => (
-              <span key={line} className="flex items-center gap-3">
-                {i > 0 && <span aria-hidden="true" className="size-1 rounded-full bg-accent" />}
-                {line}
-              </span>
-            ))}
+  return (
+    <section id={SECTION_IDS.home} aria-labelledby="hero-title" className="pt-32 pb-(--space-section) sm:pt-40">
+      <Container className="grid items-center gap-14 lg:grid-cols-[1.3fr_1fr] lg:gap-16">
+        <div>
+          <p className="glass-sm inline-flex items-center gap-2 px-3 py-1.5 text-xs font-medium text-muted">
+            <span aria-hidden="true" className="size-1.5 rounded-full bg-accent" />
+            {profile.availability} · {profile.location}
           </p>
 
-          <p className="mt-6 max-w-[60ch] text-base text-muted">{profile.heroDescription}</p>
+          <h1
+            id="hero-title"
+            className="mt-6 flex items-end gap-[0.12em] font-display text-hero leading-[0.9] tracking-[-0.03em] text-fg"
+          >
+            {profile.shortName}
+            <Image
+              src="/images/hand.svg"
+              alt=""
+              width={48}
+              height={48}
+              unoptimized
+              className="mb-[0.14em] size-[0.36em]"
+            />
+          </h1>
 
-          <div className="mt-8 flex flex-wrap items-center gap-4">
+          <p className="mt-6 font-display text-3xl leading-tight text-fg italic">{profile.headline[0]}</p>
+          <p className="mt-2 text-base font-medium text-muted">{profile.headline.slice(1).join(" · ")}</p>
+
+          <p className="mt-6 max-w-[56ch] text-base text-muted">{profile.heroDescription}</p>
+
+          <div className="mt-9 flex flex-wrap items-center gap-3">
             <ButtonLink href={hash(SECTION_IDS.contact)} size="lg">
               {labels.sayHello}
               <Send className="size-4" strokeWidth={1.5} aria-hidden="true" />
             </ButtonLink>
-
-            <ul className="flex gap-1">
-              {heroSocials.map((s) => (
-                <li key={s.network}>
-                  <a
-                    href={s.href}
-                    aria-label={s.label}
-                    className="grid size-11 place-items-center rounded-full text-muted hover:bg-fg/5 hover:text-fg"
-                    {...externalLinkProps}
-                  >
-                    <BrandIcon name={s.network} className="size-[18px]" />
-                  </a>
-                </li>
-              ))}
-            </ul>
+            <ResumeButton size="lg" />
           </div>
+
+          <ul className="mt-8 flex gap-1">
+            {heroSocials.map((s) => (
+              <li key={s.network}>
+                <a
+                  href={s.href}
+                  aria-label={s.label}
+                  className="grid size-11 place-items-center rounded-full text-muted hover:bg-fg/5 hover:text-fg"
+                  {...externalLinkProps}
+                >
+                  <BrandIcon name={s.network} className="size-[18px]" />
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
 
-        {/* Above the fold: no reveal animation, so the LCP image and heading paint immediately. */}
-        <div className="w-full max-w-[420px] justify-self-center">
+        <div className="relative mx-auto w-full max-w-[440px]">
           <div className="glass p-2">
             <Image
               src={profile.heroImage.src}
@@ -65,19 +75,28 @@ export function Hero() {
               height={profile.heroImage.height}
               alt={profile.heroImage.alt}
               priority
-              sizes="(min-width: 768px) 420px, 80vw"
-              className="aspect-square w-full max-w-[420px] rounded-[calc(var(--radius-xl)-0.5rem)] object-cover"
+              sizes="(min-width: 640px) 440px, calc(100vw - 2rem)"
+              className="aspect-square w-full rounded-[calc(var(--radius-xl)-0.5rem)] object-cover"
             />
           </div>
+
+          {currentRole && (
+            // Solid surface, not glass: it sits over the photo, so contrast can't depend on the image.
+            <div className="absolute -bottom-6 left-4 max-w-[17rem] rounded-xl border border-border bg-surface px-4 py-3 shadow-lg sm:-left-8">
+              <p className="text-xs font-medium tracking-[0.08em] text-muted uppercase">{labels.currently}</p>
+              <p className="mt-1 text-sm font-semibold text-fg">{currentRole.role}</p>
+              <p className="text-xs text-muted">{currentRole.company}</p>
+            </div>
+          )}
         </div>
       </Container>
 
-      <Container className="mt-16 hidden md:block">
+      <Container className="mt-20 hidden lg:block">
         <a
           href={hash(SECTION_IDS.about)}
-          className="inline-flex items-center gap-2 text-sm font-medium text-muted hover:text-fg"
+          className="inline-flex min-h-11 items-center gap-2 text-sm font-medium text-muted hover:text-fg"
         >
-          <ArrowDown className="size-4 motion-safe:animate-bounce" strokeWidth={1.5} aria-hidden="true" />
+          <ArrowDown className="size-4" strokeWidth={1.5} aria-hidden="true" />
           {labels.scrollDown}
         </a>
       </Container>

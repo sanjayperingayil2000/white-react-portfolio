@@ -1,12 +1,24 @@
+"use client";
+
 import { MobileMenu } from "@/components/layout/MobileMenu";
+import { ResumeButton } from "@/components/ui/ResumeButton";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
-import { nav } from "@/content/site";
+import { labels, nav } from "@/content/site";
+import { SECTION_IDS } from "@/lib/constants";
+import { useActiveSection, useScrolledPast } from "@/lib/hooks";
+import { cn } from "@/lib/utils";
+
+const sectionIds = Object.values(SECTION_IDS);
 
 export function Navbar() {
+  const scrolled = useScrolledPast(8);
+  const active = useActiveSection(sectionIds);
+
   return (
     <header className="fixed inset-x-0 top-0 z-50 px-(--gutter) pt-4">
       <nav
-        aria-label="Primary"
+        aria-label={labels.primaryNav}
+        data-scrolled={scrolled}
         className="glass-nav mx-auto flex h-14 max-w-(--container) items-center justify-between gap-4 pr-2 pl-5"
       >
         <a href={nav.logo.href} className="font-display text-2xl leading-none text-fg">
@@ -14,21 +26,29 @@ export function Navbar() {
         </a>
 
         <ul className="hidden items-center gap-1 md:flex">
-          {nav.items.map((item) => (
-            <li key={item.href}>
-              <a
-                href={item.href}
-                className="rounded-full px-3 py-2 text-sm font-medium text-muted hover:text-fg"
-              >
-                {item.label}
-              </a>
-            </li>
-          ))}
+          {nav.items.map((item) => {
+            const isActive = active === item.href.slice(1);
+            return (
+              <li key={item.href}>
+                <a
+                  href={item.href}
+                  aria-current={isActive ? "location" : undefined}
+                  className={cn(
+                    "rounded-full px-3 py-2 text-sm font-medium",
+                    isActive ? "text-accent" : "text-muted hover:text-fg",
+                  )}
+                >
+                  {item.label}
+                </a>
+              </li>
+            );
+          })}
         </ul>
 
         <div className="flex items-center gap-1">
+          <ResumeButton label={labels.resumeShort} variant="ghost" className="hidden min-h-10 px-3 lg:inline-flex" />
           <ThemeToggle />
-          <MobileMenu items={nav.items} />
+          <MobileMenu items={nav.items} active={active} />
         </div>
       </nav>
     </header>

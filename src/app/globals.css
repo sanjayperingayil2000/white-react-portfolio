@@ -14,6 +14,7 @@
   --surface: #ffffff;
   --surface-glass: rgb(255 255 255 / 0.6);
   --surface-glass-fallback: rgb(255 255 255 / 0.92);
+  --surface-glass-strong: rgb(255 255 255 / 0.8); /* scrolled navbar */
   --border: #e2e2e6;
   --border-glass: rgb(24 24 27 / 0.08);
   --glass-highlight: rgb(255 255 255 / 0.9);
@@ -53,6 +54,7 @@
   --surface: #18181b;
   --surface-glass: rgb(255 255 255 / 0.06);
   --surface-glass-fallback: #1c1c20;
+  --surface-glass-strong: rgb(24 24 27 / 0.75);
   --border: #3f3f46;
   --border-glass: rgb(255 255 255 / 0.1);
   --glass-highlight: rgb(255 255 255 / 0.08);
@@ -110,6 +112,8 @@
   --text-3xl: clamp(1.75rem, 1.4565rem + 1.3043vw, 2.5rem);
   --text-4xl: clamp(2.125rem, 1.587rem + 2.3913vw, 3.5rem);
   --text-5xl: clamp(2.5rem, 1.6196rem + 3.913vw, 4.75rem);
+  /* Hero name only (56 → 152px). */
+  --text-hero: clamp(3.5rem, 1.152rem + 10.435vw, 9.5rem);
 
   --radius-sm: 0.5rem;
   --radius-md: 0.75rem;
@@ -214,6 +218,82 @@
     border-radius: 9999px;
   }
 
+  /* Navbar gets more opaque once the page scrolls (set by Navbar.tsx). */
+  .glass-nav[data-scrolled="true"] {
+    background: var(--surface-glass-strong);
+    box-shadow: var(--shadow-glass), var(--shadow-md);
+  }
+
+  /* Pointer-tracked tilt + lift for project cards (TiltCard.tsx sets --tilt-x/--tilt-y). */
+  .tilt {
+    transform: perspective(900px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg))
+      translateY(var(--lift, 0px));
+    transition: transform var(--dur-fast) var(--ease-out);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .tilt:hover {
+      --lift: -4px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .tilt {
+      transform: none;
+    }
+  }
+
+  /* Sun ↔ moon morph (ThemeToggle.tsx). State follows the .dark class, so it is right before hydration. */
+  .theme-icon-core,
+  .theme-icon-rays {
+    transform-box: view-box;
+    transform-origin: 12px 12px;
+  }
+
+  .theme-icon-core,
+  .theme-icon-rays,
+  .theme-icon-cutout {
+    transition:
+      transform var(--dur-slow) var(--ease-out),
+      opacity var(--dur-fast) var(--ease-standard);
+  }
+
+  .theme-icon-core {
+    transform: scale(0.55);
+  }
+
+  .dark .theme-icon-core {
+    transform: scale(1);
+  }
+
+  .dark .theme-icon-cutout {
+    transform: translate(-7px, -3px);
+  }
+
+  .dark .theme-icon-rays {
+    opacity: 0;
+    transform: rotate(-45deg) scale(0.5);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .theme-icon-core,
+    .theme-icon-rays,
+    .theme-icon-cutout {
+      transition: none;
+    }
+  }
+
+  /* Native <dialog> (service details): near-opaque surface for legible text over the dimmed page. */
+  .dialog-surface {
+    background: var(--surface-glass-fallback);
+  }
+
+  .dialog-surface::backdrop {
+    background: rgb(0 0 0 / 0.4);
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+  }
+
   @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
     .glass,
     .glass-nav,
@@ -245,7 +325,7 @@
    ========================================================================== */
 
 .theme-vt,
-.theme-vt * {
+.theme-vt *:not(.theme-icon *) {
   transition: none !important;
 }
 

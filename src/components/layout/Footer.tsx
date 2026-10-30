@@ -1,5 +1,6 @@
 import { BrandIcon } from "@/components/ui/BrandIcon";
 import { Container } from "@/components/ui/Container";
+import { ResumeButton } from "@/components/ui/ResumeButton";
 import { footer } from "@/content/site";
 import { footerSocials } from "@/content/socials";
 import { externalLinkProps } from "@/lib/utils";
@@ -20,6 +21,8 @@ export function Footer() {
               </li>
             ))}
           </ul>
+
+          <ResumeButton />
 
           <ul className="flex gap-2">
             {footerSocials.map((s) => (
