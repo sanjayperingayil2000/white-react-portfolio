@@ -8,7 +8,7 @@ import { ScrollToTop } from "@/components/layout/ScrollToTop";
 import { MotionProvider } from "@/components/motion/MotionProvider";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { profile } from "@/content/profile";
-import { site } from "@/content/site";
+import { labels, site } from "@/content/site";
 import "./globals.css";
 
 const display = Instrument_Serif({
@@ -27,8 +27,12 @@ export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: { default: site.title, template: `%s — ${profile.fullName}` },
   description: site.description,
+  applicationName: profile.fullName,
   authors: [{ name: profile.fullName, url: site.url }],
+  creator: profile.fullName,
   alternates: { canonical: "/" },
+  // Phone numbers are already links; stop iOS from styling other digit runs (dates).
+  formatDetection: { telephone: false },
   openGraph: {
     type: "website",
     url: "/",
@@ -66,11 +70,19 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <noscript>
           <style>{"[data-reveal]{opacity:1!important;transform:none!important}"}</style>
         </noscript>
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[60] focus:rounded-md focus:bg-accent focus:px-4 focus:py-3 focus:text-sm focus:font-medium focus:text-accent-foreground"
+        >
+          {labels.skipToContent}
+        </a>
         <ThemeProvider>
           <MotionProvider>
             <BackgroundOrbs />
             <Navbar />
-            <main>{children}</main>
+            <main id="main" tabIndex={-1} className="outline-none">
+              {children}
+            </main>
             <Footer />
             <ScrollToTop />
             <FloatingWhatsApp />

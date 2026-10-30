@@ -1,11 +1,11 @@
 "use client";
 
-import { motion } from "motion/react";
+import * as m from "motion/react-m";
 import { motionConfig } from "@/components/motion/config";
 
 const { distance, duration, stagger, staggerGroup, ease, viewportMargin } = motionConfig.reveal;
 
-const tags = { div: motion.div, li: motion.li, article: motion.article, header: motion.header } as const;
+const tags = { div: m.div, li: m.li, article: m.article, header: m.header } as const;
 
 type RevealProps = {
   children: React.ReactNode;

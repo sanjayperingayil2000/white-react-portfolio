@@ -76,6 +76,7 @@ export const labels = {
   openMenu: "Open menu",
   closeMenu: "Close menu",
   siteMenu: "Site menu",
+  skipToContent: "Skip to content",
   close: "Close",
   backToTop: "Back to top",
   filterProjects: "Filter projects by category",

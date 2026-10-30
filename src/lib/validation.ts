@@ -30,3 +30,9 @@ export type ContactResponse =
   | { ok: false; reason: "invalid"; errors: Partial<Record<ContactField, string[]>> }
   | { ok: false; reason: "rate-limited"; retryAfterSeconds: number }
   | { ok: false; reason: "bad-request" };
+
+/** First error message per field, for showing under each input. */
+export function firstFieldErrors(error: z.ZodError<ContactInput>): Partial<Record<ContactField, string>> {
+  const { fieldErrors } = z.flattenError(error);
+  return Object.fromEntries(Object.entries(fieldErrors).map(([k, v]) => [k, v?.[0]]));
+}

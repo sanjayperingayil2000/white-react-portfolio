@@ -8,10 +8,12 @@ import { Projects } from "@/components/sections/Projects";
 import { Services } from "@/components/sections/Services";
 import { Skills } from "@/components/sections/Skills";
 import { Testimonials } from "@/components/sections/Testimonials";
+import { PersonJsonLd } from "@/components/seo/PersonJsonLd";
 
 export default function Home() {
   return (
     <>
+      <PersonJsonLd />
       <Hero />
       <About />
       <Experience />

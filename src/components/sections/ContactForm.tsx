@@ -1,15 +1,14 @@
 "use client";
 
-import emailjs from "@emailjs/browser";
 import { CircleAlert, CircleCheck, LoaderCircle, Send } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import { z } from "zod";
 import { Button } from "@/components/ui/Button";
 import { contactCopy, contactForm, labels } from "@/content/site";
 import { email as contactEmail } from "@/content/socials";
 import { contactSpam, emailjsConfig, isEmailjsConfigured } from "@/lib/contact";
 import { cn } from "@/lib/utils";
-import { contactSchema, type ContactField, type ContactInput, type ContactResponse } from "@/lib/validation";
+// zod (via @/lib/validation) and EmailJS are imported on submit, keeping them out of the initial bundle.
+import type { ContactField, ContactInput, ContactResponse } from "@/lib/validation";
 
 type Status =
   | { kind: "idle" }
@@ -58,9 +57,10 @@ export function ContactForm() {
     };
     setLastValues(raw);
 
+    const { contactSchema, firstFieldErrors } = await import("@/lib/validation");
     const parsed = contactSchema.safeParse(raw);
     if (!parsed.success) {
-      setErrors(firstErrors(z.flattenError(parsed.error).fieldErrors));
+      setErrors(firstFieldErrors(parsed.error));
       setStatus({ kind: "idle" });
       return;
     }
@@ -92,6 +92,7 @@ export function ContactForm() {
       // Bots get the same success screen without anything being sent.
       if (result.deliver) {
         if (!isEmailjsConfigured()) throw new Error("EmailJS env vars are not set (see .env.example)");
+        const { default: emailjs } = await import("@emailjs/browser");
         const { name, email, subject, message } = parsed.data;
         await emailjs.send(
           emailjsConfig.serviceId,

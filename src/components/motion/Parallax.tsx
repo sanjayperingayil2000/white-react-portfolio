@@ -1,6 +1,7 @@
 "use client";
 
-import { motion, useMotionValue, useReducedMotion, useScroll, useTransform } from "motion/react";
+import { useMotionValue, useReducedMotion, useScroll, useTransform } from "motion/react";
+import * as m from "motion/react-m";
 import { useEffect, useRef } from "react";
 import { motionConfig, type ParallaxPreset } from "@/components/motion/config";
 import { useIsTouch } from "@/components/motion/useIsTouch";
@@ -42,8 +43,8 @@ export function Parallax({ preset, children, className, style }: ParallaxProps) 
   });
 
   return (
-    <motion.div ref={ref} className={className} style={{ ...style, y }}>
+    <m.div ref={ref} className={className} style={{ ...style, y }}>
       {children}
-    </motion.div>
+    </m.div>
   );
 }
