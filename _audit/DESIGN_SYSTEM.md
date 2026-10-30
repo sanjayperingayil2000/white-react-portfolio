@@ -1,6 +1,6 @@
 # Design System — Portfolio v2
 
-Status: **PROPOSAL — awaiting approval.** No UI code has been written.
+Status: **APPROVED (2026-10-30)**. Accent: Option A, Lagoon teal. Fonts: Instrument Serif (display) + Geist (body).
 
 **Direction:** eye-catching but restrained: premium, modern, calm. Frosted **glass** is the signature surface. The base is neutral, with **one** accent colour. Colour stays quiet; depth comes from blur, light and motion.
 
