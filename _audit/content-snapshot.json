@@ -1,0 +1,270 @@
+{
+  "meta": {
+    "auditedAt": "2026-10-30",
+    "branch": "v.1.01-fde",
+    "baseCommit": "567f299",
+    "note": "Verbatim copy of user-facing text (section B) and structured data (section C) from the old CRA site. Typos, casing and spacing are preserved intentionally."
+  },
+  "content": {
+    "header": {
+      "source": "src/components/header/Header.jsx",
+      "logo": { "text": "Sanjay", "href": "index.html" },
+      "nav": [
+        { "label": "Home", "href": "#home", "icon": "uil-estate" },
+        { "label": "About", "href": "#about", "icon": "uil-user" },
+        { "label": "Skills", "href": "#skills", "icon": "uil-file-alt" },
+        { "label": "Services", "href": "#services", "icon": "uil-briefcase-alt" },
+        { "label": "portfolio", "href": "#portfolio", "icon": "uil-scenery" },
+        { "label": "Contact", "href": "#contact", "icon": "uil-message" }
+      ]
+    },
+    "home": {
+      "source": ["src/components/home/Data.jsx", "src/components/home/Social.jsx", "src/components/home/ScrollDown.jsx"],
+      "title": "Sanjay",
+      "titleDecoration": "inline waving-hand SVG",
+      "subtitles": ["Full Stack Developer", "AI automation & agent (n8n)"],
+      "description": "As a Full Stack Developer, I'm passionate about crafting dynamic and responsive web applications. I bring experience in both front-end and back-end development, complemented by my expertise as an n8n Developer focused on AI automation and AI agent generation. I'm consistently eager to explore new technologies and enhance my skill set.",
+      "cta": { "label": "Say Hello", "href": "#contact" },
+      "scrollDown": { "label": "Scroll Down", "href": "#about" },
+      "socialIcons": ["instagram", "github", "linkedin"],
+      "heroImage": "snjy07.jpg"
+    },
+    "about": {
+      "source": ["src/components/about/About.jsx", "src/components/about/Info.jsx"],
+      "title": "About Me",
+      "subtitle": "My introduction",
+      "image": { "file": "snjy00.JPG", "alt": "" },
+      "info": [
+        { "icon": "uil-award", "title": "Experience", "subtitle": "4+ Years Working" },
+        { "icon": "uil-briefcase-alt", "title": "Completed", "subtitle": "18 + Projects" },
+        { "icon": "bx-headphone-mic", "title": "Support", "subtitle": "Online 24/7" }
+      ],
+      "description": "I'm a Full Stack Developer with a passion for creating dynamic and responsive web applications. My experience spans both front-end and back-end development, and I specialize as an n8n Developer for AI automation and AI agent generation. I'm always eager to learn new technologies and improve my skills.",
+      "cvButton": { "label": "Download CV", "file": "sanjay-resume-2026.pdf", "download": true }
+    },
+    "skills": {
+      "source": "src/components/skills/Skills.jsx",
+      "title": "Skills",
+      "subtitle": "My technical level"
+    },
+    "services": {
+      "source": "src/components/services/Services.jsx",
+      "title": "Services",
+      "subtitle": "What i offer",
+      "buttonLabel": "View More",
+      "items": [
+        {
+          "icon": "uil-web-grid",
+          "cardTitleLines": ["Full Stack", "Web Apps"],
+          "modalTitle": "Full Stack Web Application",
+          "modalDescription": "Scalable, responsive, and modern web applications built from scratch using the latest fullstack technologies.",
+          "bullets": [
+            "End-to-end development with React.js, Next.js, Node.js & databases like MongoDB/PostgreSQL",
+            "Fully responsive, SEO-friendly, and user-centric designs",
+            "RESTful & GraphQL API integration with secure authentication",
+            "Admin dashboards, content management, and analytics-ready setups",
+            "Clean, maintainable codebase with Git and deployment pipelines"
+          ]
+        },
+        {
+          "icon": "uil-arrow",
+          "cardTitleLines": ["Website", "Maintenance"],
+          "modalTitle": "Ensuring Your Website Runs Smoothly 24/7",
+          "modalDescription": "Reliable ongoing support to keep your website secure, updated, and running smoothly at all times.",
+          "bullets": [
+            "Regular bug fixes, performance tuning, and content updates",
+            "Uptime monitoring, backups, and security enhancements",
+            "CMS adjustments or plugin/module integration",
+            "Troubleshooting deployment issues and broken functionalities",
+            "Adding new sections or pages without disrupting existing systems"
+          ]
+        },
+        {
+          "icon": "uil-edit",
+          "cardTitleLines": ["Graphic", "Design"],
+          "modalTitle": "Designs That Speak for Your Brand",
+          "modalDescription": "Creative and brand-aligned visuals for digital and print that leave a lasting impression.",
+          "bullets": [
+            "Custom logo, poster, and brochure design",
+            "Social media creatives with consistent visual branding",
+            "Clean, professional, and pixel-perfect designs",
+            "Fast delivery with multiple format exports (PNG, PDF, SVG)",
+            "Social media marketing visuals for brand engagement and promotions"
+          ]
+        }
+      ]
+    },
+    "qualification": {
+      "source": "src/components/qualification/Qualification.jsx",
+      "anchorId": null,
+      "title": "Qualification",
+      "subtitle": "My personal journey",
+      "tabs": [
+        { "label": "Education", "icon": "uil-graduation-cap", "default": true },
+        { "label": "Experience", "icon": "uil-briefcase-alt" }
+      ]
+    },
+    "portfolio": {
+      "source": ["src/components/work/Work.jsx", "src/components/work/Works.jsx", "src/components/work/WorkItems.jsx"],
+      "title": "Portfolio",
+      "subtitle": "Most recent works",
+      "filters": ["all", "ui", "business", "blog"],
+      "filtersDisplayedAs": "capitalize (CSS)",
+      "cardButtonLabel": "Demo"
+    },
+    "testimonials": {
+      "source": ["src/components/testimmonials/Testimonials.jsx", "src/components/testimmonials/Data.jsx"],
+      "title": "My  clients say",
+      "subtitle": "Testimonial",
+      "items": [
+        {
+          "id": 1,
+          "name": "Sreehari",
+          "image": "testimonial1.png",
+          "quote": "Worked with me as a freelance developer and delivered a fully functional, responsive website tailored to client needs. Reliable, technically sound, and quick to adapt to feedback throughout the project."
+        },
+        {
+          "id": 2,
+          "name": "Jibu Thomas",
+          "image": "jibu.jpg",
+          "quote": "A proactive and reliable team player. Consistently led development efforts with precision and played a key role in successful project deliveries within tight deadlines."
+        },
+        {
+          "id": 3,
+          "name": "Sufair",
+          "image": "suf01.jpg",
+          "quote": "Handled our brand’s visual identity and online presence with creativity and consistency. Designed impactful visuals and ran social campaigns that enhanced our engagement and reach."
+        }
+      ]
+    },
+    "contact": {
+      "source": "src/components/contact/Contact.jsx",
+      "title": "Get in touch",
+      "subtitle": "Contact Me",
+      "leftHeading": "Talk to me",
+      "cards": [
+        { "icon": "bx-envelope", "title": "Email", "data": "sanjayperingayil@gmail.com", "button": "Write me", "href": "mailto:examplemail@gmail.com.com", "issue": "mailto address does not match displayed email" },
+        { "icon": "uil-whatsapp", "title": "Whatsapp UAE", "data": "+971-588-393-705", "button": "Write me", "href": "https://api.whatsapp.com/send?phone=971588393705&text=Hello, more information!" },
+        { "icon": "uil-whatsapp", "title": "Whatsapp India", "data": "+91-906-138-1726", "button": "Write me", "href": "https://api.whatsapp.com/send?phone=9061381726&text=Hello, more information!", "issue": "phone param missing 91 country code" },
+        { "icon": "uil-facebook-messenger-alt", "title": "Messenger", "data": "Sanjay peringayil", "button": "Write me", "href": "https://m.me/crypticalcoder", "commentedOut": true }
+      ],
+      "formHeading": "Write me your project",
+      "formFields": [
+        { "label": "Name", "name": "name", "type": "text", "placeholder": "Insert your name" },
+        { "label": "Mail", "name": "email", "type": "email", "placeholder": "Insert your email" },
+        { "label": "Project", "name": "project", "type": "textarea", "placeholder": "Write your project" }
+      ],
+      "submitLabel": "Send Message"
+    },
+    "footer": {
+      "source": "src/components/footer/Footer.jsx",
+      "title": "Sanjay Peringayil",
+      "links": [
+        { "label": "About", "href": "#about" },
+        { "label": "Projects", "href": "#portfolio" },
+        { "label": "Testimonials", "href": "#testimonials" }
+      ],
+      "socialIcons": ["facebook", "instagram", "linkedin"],
+      "copyright": "© SanjayPeringayil. All rigths reserved"
+    },
+    "scrollUp": {
+      "source": "src/components/scrollup/Scrollup.jsx",
+      "icon": "uil-arrow-up",
+      "showAfterScrollY": 560
+    }
+  },
+  "data": {
+    "experience": [
+      { "role": "Full Stack developer", "company": "JAH Transport by heavy & light trucks LLC", "dates": "2025 - 2026", "location": null, "bullets": [] },
+      { "role": "Junior Software Engineer", "company": "Softnotions Technologies Private Limited", "dates": "2023 - 2025", "location": null, "bullets": [] },
+      { "role": "Full Stack developer Program", "company": "Preb bytes.com", "dates": "2022 - 2023", "location": null, "bullets": [] },
+      { "role": "Graphic Designer", "company": "Calypso Innovative Branding Partner", "dates": "2021 - 2022", "location": null, "bullets": [] }
+    ],
+    "projects": [
+      { "order": 1, "id": 5, "title": "Ai application", "category": "ui", "liveUrl": "https://ui001-beta.vercel.app/", "repoUrl": null, "description": null, "techStack": [], "image": "brainwaveui.png" },
+      { "order": 2, "id": 8, "title": "Business service", "category": "business", "liveUrl": "https://ikonext.vercel.app/", "repoUrl": null, "description": null, "techStack": [], "image": "ikon.png" },
+      { "order": 3, "id": 7, "title": "Logistics Company", "category": "business", "liveUrl": "https://transportlogistics.vercel.app/", "repoUrl": null, "description": null, "techStack": [], "image": "logistics.png" },
+      { "order": 4, "id": 6, "title": "Coffee Shop", "category": "ui", "liveUrl": "https://coffeui.vercel.app/", "repoUrl": null, "description": null, "techStack": [], "image": "coffeeui.png" },
+      { "order": 5, "id": 2, "title": "Ecommerce app", "category": "business", "liveUrl": "https://ecommerce002.vercel.app/", "repoUrl": null, "description": null, "techStack": [], "image": "ecommerce002.png" },
+      { "order": 6, "id": 3, "title": "Hotel Booking Web", "category": "business", "liveUrl": "https://hotelbooking001.vercel.app/", "repoUrl": null, "description": null, "techStack": [], "image": "hotel001.png" },
+      { "order": 7, "id": 1, "title": "Blog web", "category": "blog", "liveUrl": "https://incredible-nasturtium-a80245.netlify.app/", "repoUrl": null, "description": null, "techStack": [], "image": "blog001.png" },
+      { "order": 8, "id": 4, "title": "Dashboard UI", "category": "ui", "liveUrl": "https://dashboard001-kappa.vercel.app/dashboard", "repoUrl": null, "description": null, "techStack": [], "image": "muikit.png" }
+    ],
+    "skills": [
+      {
+        "group": "Frontend Developer",
+        "source": "src/components/skills/Frontend.jsx",
+        "columns": [
+          [
+            { "name": "HTML", "level": "Advanced" },
+            { "name": "CSS", "level": "Advanced" },
+            { "name": "Javascript", "level": "Professional" },
+            { "name": "Wordpress", "level": "Intermediate" }
+          ],
+          [
+            { "name": "React", "level": "Advanced" },
+            { "name": "Next", "level": "Advanced" },
+            { "name": "Bootstrap", "level": "Advanced" },
+            { "name": "Tailwind", "level": "Intermediate" }
+          ]
+        ]
+      },
+      {
+        "group": "Backend Developer",
+        "source": "src/components/skills/Backend.jsx",
+        "columns": [
+          [
+            { "name": "Node Js", "level": "Advanced" },
+            { "name": "Express", "level": "Intermediate" },
+            { "name": "Nest Js", "level": "Basic" },
+            { "name": "AWS", "level": "Intermediate" }
+          ],
+          [
+            { "name": "Mongodb", "level": "Advanced" },
+            { "name": "Postgresql", "level": "Intermediate" },
+            { "name": "GraphQL", "level": "Intermediate" },
+            { "name": "REST API", "level": "Advanced" }
+          ]
+        ]
+      },
+      {
+        "group": "AI (No code)",
+        "source": "src/components/skills/Aiskills.jsx",
+        "columns": [
+          [
+            { "name": "n8n", "level": "Basic" },
+            { "name": "Automation", "level": "Basic" }
+          ],
+          [
+            { "name": "Agent", "level": "Basic" }
+          ]
+        ]
+      }
+    ],
+    "education": [
+      { "title": "Bachlor's Degree", "institution": "A.P.J Abdul kalam Technological  university", "dates": "2017 - 2021" },
+      { "title": "Diploma", "institution": "Kerala Academy for Skills Excellence (KASE)", "dates": "2017 - 2019" },
+      { "title": "High School", "institution": "Kerala State Board", "dates": "2015 - 2017" }
+    ],
+    "certifications": [],
+    "awards": [],
+    "publications": [],
+    "links": {
+      "emailDisplayed": "sanjayperingayil@gmail.com",
+      "emailMailtoHref": "mailto:examplemail@gmail.com.com",
+      "whatsappUae": { "display": "+971-588-393-705", "phoneParam": "971588393705" },
+      "whatsappIndia": { "display": "+91-906-138-1726", "phoneParam": "9061381726" },
+      "github": "https://github.com/sanjayperingayil2000",
+      "linkedin": "https://www.linkedin.com/in/sanjay-purushothaman-5223aa224/",
+      "instagram": "https://www.instagram.com/sanjayperingayil?igsh=eGJmMzgzcThyMmZm",
+      "facebook": "https://www.facebook.com/share/1EM19GJhb8/",
+      "messengerCommentedOut": "https://m.me/crypticalcoder"
+    },
+    "metadata": {
+      "lang": "en",
+      "title": "Sanjay Peringayil",
+      "description": "Sanjay Peringayil Purushothaman Portfolio",
+      "favicon": "https://github.com/sanjayperingayil2000/white-react-portfolio/blob/main/src/assets/snjyred.png?raw=true"
+    }
+  }
+}
