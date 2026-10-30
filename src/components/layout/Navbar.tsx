@@ -21,7 +21,7 @@ export function Navbar() {
         data-scrolled={scrolled}
         className="glass-nav mx-auto flex h-14 max-w-(--container) items-center justify-between gap-4 pr-2 pl-5"
       >
-        <a href={nav.logo.href} className="font-display text-2xl leading-none text-fg">
+        <a href={nav.logo.href} className="inline-flex min-h-11 items-center font-display text-2xl leading-none text-fg">
           {nav.logo.label}
         </a>
 
@@ -34,7 +34,7 @@ export function Navbar() {
                   href={item.href}
                   aria-current={isActive ? "location" : undefined}
                   className={cn(
-                    "rounded-full px-2.5 py-2 text-sm font-medium xl:px-3",
+                    "inline-flex min-h-11 items-center rounded-full px-2.5 text-sm font-medium xl:px-3",
                     isActive ? "text-accent" : "text-muted hover:text-fg",
                   )}
                 >
@@ -46,7 +46,7 @@ export function Navbar() {
         </ul>
 
         <div className="flex items-center gap-1">
-          <ResumeButton label={labels.resumeShort} variant="ghost" className="hidden min-h-10 px-3 lg:inline-flex" />
+          <ResumeButton label={labels.resumeShort} variant="ghost" className="hidden min-h-11 px-3 lg:inline-flex" />
           <ThemeToggle />
           <MobileMenu items={nav.items} active={active} />
         </div>

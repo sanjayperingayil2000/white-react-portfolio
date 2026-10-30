@@ -115,8 +115,8 @@
   --text-3xl: clamp(1.75rem, 1.4565rem + 1.3043vw, 2.5rem);
   --text-4xl: clamp(2.125rem, 1.587rem + 2.3913vw, 3.5rem);
   --text-5xl: clamp(2.5rem, 1.6196rem + 3.913vw, 4.75rem);
-  /* Hero name only (56 → 152px). */
-  --text-hero: clamp(3.5rem, 1.152rem + 10.435vw, 9.5rem);
+  /* Hero name only (64 → 152px). */
+  --text-hero: clamp(4rem, 1.848rem + 9.565vw, 9.5rem);
 
   --radius-sm: 0.5rem;
   --radius-md: 0.75rem;
@@ -336,4 +336,50 @@
 ::view-transition-new(root) {
   animation: none;
   mix-blend-mode: normal;
+}
+
+/* ==========================================================================
+   Responsive & dialogs (Phase 8)
+   ========================================================================== */
+
+/* Lock page scroll while any modal dialog is open (menu, service details, certificate). */
+html:has(dialog[open]) {
+  overflow: hidden;
+}
+
+/* Mobile menu sheet: short fade in/out; instant under reduced motion. */
+.mobile-sheet {
+  opacity: 0;
+  transition:
+    opacity var(--dur-fast) var(--ease-standard),
+    overlay var(--dur-fast) allow-discrete,
+    display var(--dur-fast) allow-discrete;
+}
+
+.mobile-sheet[open] {
+  opacity: 1;
+}
+
+@starting-style {
+  .mobile-sheet[open] {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mobile-sheet {
+    transition: none;
+  }
+}
+
+/* Cheaper glass on small screens: less blur to composite (contrast is unaffected,
+   §1.5 is measured at the orb's peak colour, which blur only lowers). */
+@media (max-width: 767px) {
+  :root {
+    --glass-blur: 10px;
+  }
+
+  .dark {
+    --glass-blur: 12px;
+  }
 }

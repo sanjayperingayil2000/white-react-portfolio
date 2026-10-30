@@ -12,10 +12,10 @@ export function Footer() {
         <div className="glass flex flex-col items-center gap-6 px-6 py-10 text-center">
           <p className="font-display text-3xl text-fg">{footer.title}</p>
 
-          <ul className="flex flex-wrap justify-center gap-x-6 gap-y-2">
+          <ul className="flex flex-wrap justify-center gap-x-5">
             {footer.links.map((link) => (
               <li key={link.href}>
-                <a href={link.href} className="text-sm font-medium text-muted hover:text-fg">
+                <a href={link.href} className="inline-flex min-h-11 items-center px-1 text-sm font-medium text-muted hover:text-fg">
                   {link.label}
                 </a>
               </li>

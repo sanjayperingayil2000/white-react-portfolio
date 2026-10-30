@@ -62,7 +62,7 @@ export function FeaturedProjectCard({ project }: { project: FeaturedProject }) {
     <GlassCard as="article" className="h-full group-hover:shadow-lg">
       <div className="grid gap-8 lg:grid-cols-[2fr_3fr]">
         <div className="flex flex-col gap-5">
-          <ProjectImage project={project} sizes="(min-width: 1024px) 40vw, 100vw" />
+          <ProjectImage project={project} sizes="(min-width: 1280px) 440px, (min-width: 1024px) 40vw, 100vw" />
           <div>
             <p className="text-xs font-medium tracking-[0.08em] text-muted uppercase">{project.context}</p>
             <h3 className="mt-2 font-display text-3xl leading-[1.1] tracking-[-0.01em] text-fg">{project.title}</h3>
@@ -84,7 +84,7 @@ export function FeaturedProjectCard({ project }: { project: FeaturedProject }) {
 export function GalleryProjectCard({ project }: { project: GalleryProject }) {
   return (
     <GlassCard as="article" className="flex h-full flex-col p-3 group-hover:shadow-lg sm:p-3">
-      <ProjectImage project={project} sizes="(min-width: 768px) 50vw, 100vw" />
+      <ProjectImage project={project} sizes="(min-width: 1280px) 560px, (min-width: 768px) 50vw, 100vw" />
       <div className="flex flex-1 flex-col gap-3 px-3 pt-4 pb-1">
         <div className="flex items-center justify-between gap-4">
           <h3 className="text-base font-semibold text-fg">{project.title}</h3>

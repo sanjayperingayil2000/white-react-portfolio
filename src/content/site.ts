@@ -75,6 +75,7 @@ export const labels = {
   primaryNav: "Primary",
   openMenu: "Open menu",
   closeMenu: "Close menu",
+  siteMenu: "Site menu",
   close: "Close",
   backToTop: "Back to top",
   filterProjects: "Filter projects by category",

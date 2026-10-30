@@ -50,7 +50,7 @@ export function Contact() {
                   <GlassCard className="p-5 sm:p-5">
                     <BrandIcon name="whatsapp" className="size-6 text-fg" />
                     <p className="mt-2 text-sm font-semibold text-fg">{phone.label}</p>
-                    <a href={`tel:${phone.tel}`} className="text-sm text-muted hover:text-fg">
+                    <a href={`tel:${phone.tel}`} className="inline-flex min-h-11 items-center text-sm text-muted hover:text-fg">
                       <span className="sr-only">{contactCopy.call} </span>
                       {phone.display}
                     </a>

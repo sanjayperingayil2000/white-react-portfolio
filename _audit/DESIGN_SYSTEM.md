@@ -442,3 +442,14 @@ All tuning lives in `src/components/motion/config.ts`: a global `intensity` mult
 
 - **`--danger`** (light `#b42318`, dark `#fda29b`): used only for form error text, invalid-field borders and the error icon. It's a semantic state colour, not a second accent. Measured on every surface in §1.5: light ≥ 6.00:1, dark ≥ 6.37:1 (the first dark choice, `#f97066`, failed at 4.44:1 on glass over a teal orb, so it was lightened).
 - **Floating WhatsApp button** (below `lg` only): an accent-filled circle at bottom right, with back-to-top stacked above it so the two never overlap.
+
+---
+
+## 12. Responsive rules (Phase 8)
+
+- **`--text-hero`** minimum raised to 64px: `clamp(4rem, 1.848rem + 9.565vw, 9.5rem)`, so the name stays bold on a 360px phone and still fits on one line with the hand icon.
+- **Below 768px:** glass blur is 10px (light) / 12px (dark) instead of 16 / 20, and 4 of the 8 background orbs show (still alternating sides). Contrast from §1.5 is unaffected, since it's measured at each orb's peak colour.
+- **Mobile menu (below `lg`):** a full-screen glass sheet on a native modal `<dialog>`. This gives a focus trap, an inert background and Escape to close. Section links close the sheet and scroll to the section; Escape and ✕ return focus to the menu button. The theme toggle, Download Resume and socials are inside the sheet.
+- **Scroll lock:** `html:has(dialog[open]) { overflow: hidden }` covers every modal (menu, service details, certificate lightbox).
+- **Touch targets:** every interactive element is at least 44×44px. Inline links inside a sentence (the `mailto:` fallback) are the only exception.
+- **Hover effects:** Tailwind v4's `hover:` only applies on hover-capable devices, the `.tilt` lift needs `(hover: hover) and (pointer: fine)`, and `TiltCard` ignores non-mouse pointers.

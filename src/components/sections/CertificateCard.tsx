@@ -25,7 +25,7 @@ export function CertificateCard({ cert }: { cert: Certification }) {
             width={cert.image.width}
             height={cert.image.height}
             alt={cert.image.alt}
-            sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+            sizes="(min-width: 1280px) 360px, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
             className="size-full object-cover object-top"
           />
         ) : (

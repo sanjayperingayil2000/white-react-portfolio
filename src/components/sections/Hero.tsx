@@ -77,7 +77,8 @@ export function Hero() {
               height={profile.heroImage.height}
               alt={profile.heroImage.alt}
               priority
-              sizes="(min-width: 640px) 440px, calc(100vw - 2rem)"
+              // Rendered width: 424px at xl, ~38vw beside the text at lg, up to 424px stacked, else viewport minus gutters and frame.
+              sizes="(min-width: 1280px) 424px, (min-width: 1024px) 38vw, (min-width: 640px) 424px, calc(100vw - 3rem)"
               className="aspect-square w-full rounded-[calc(var(--radius-xl)-0.5rem)] object-cover"
             />
           </div>
