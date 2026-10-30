@@ -1,0 +1,501 @@
+{
+  "meta": {
+    "generatedAt": "2026-10-30",
+    "status": "DRAFT — awaiting approval of OLD-ONLY (O*), UPDATED (U*) and CORRECTIONS (C*) items in RESUME_MERGE.md",
+    "resumeSource": "Sanjay_P_Purushothaman_FDE_Resume.pdf (chat attachment). _input/resume-new.pdf not present at generation time — re-verify when added.",
+    "oldSiteSource": "_audit/content-snapshot.json",
+    "rule": "Resume wins on conflicts; old-only items kept unless dropped.",
+    "sourceValues": {
+      "resume": "taken from the new resume",
+      "old-site": "only on the old site (kept by default)",
+      "both": "on both; resume version used where they differ",
+      "derived": "rearranged from resume text, no new facts — needs approval"
+    },
+    "assetDir": "_audit/assets-backup/",
+    "todoMarker": "TODO"
+  },
+
+  "site": {
+    "url": "TODO: production domain (Q1)",
+    "lang": "en",
+    "title": "Sanjay P Purushothaman — Forward Deployed Engineer",
+    "description": "Portfolio of Sanjay P Purushothaman — Forward Deployed Engineer | Applied AI & Agentic Systems | Full-Stack (Next.js, Node.js, AWS)",
+    "_titleSource": "derived (U14, depends on U1)",
+    "favicon": "snjyred.png",
+    "oldFavicon": "https://github.com/sanjayperingayil2000/white-react-portfolio/blob/main/src/assets/snjyred.png?raw=true",
+    "_faviconNote": "Same image, to be served locally instead of hot-linked from GitHub",
+    "oldTitle": "Sanjay Peringayil",
+    "oldDescription": "Sanjay Peringayil Purushothaman Portfolio"
+  },
+
+  "profile": {
+    "fullName": "Sanjay P Purushothaman",
+    "shortName": "Sanjay",
+    "_nameDecision": "U1 / Q2 — old site used 'Sanjay Peringayil' (footer) and 'Sanjay Peringayil Purushothaman' (meta)",
+    "headline": [
+      "Forward Deployed Engineer",
+      "Applied AI & Agentic Systems",
+      "Full-Stack (Next.js, Node.js, AWS)"
+    ],
+    "location": "Kerala, India",
+    "availability": "Open to Remote / Relocation",
+    "summary": "Forward Deployed–oriented engineer with 5+ years of professional experience across software engineering and digital product delivery, including 4+ years building and shipping production full-stack and cloud systems. Combines a consultant's discipline stakeholder-led problem discovery, requirement framing, solution design and executive delivery with an engineer's end-to-end ownership currently owning the frontend of a multi-service product, joining client requirement calls, and shipping through GitLab CI/CD to AWS (Lambda, EC2, ECS) and Kubernetes. Currently building agentic AI systems with multi-model LLM orchestration (LangChain) in the PGP in Forward Deployed Engineering & Applied AI Solutions including a bilingual order-resolution assistant with a tiered model strategy and fail-closed anti-hallucination guardrails, delivered from discovery to MVP.",
+    "_summaryNote": "Verbatim from PDF text extraction; em dashes may be missing (Q3)",
+    "languages": ["English", "Malayalam", "Hindi", "Tamil"],
+    "resumeFile": "TODO: _input/resume-new.pdf (to be copied into public/ during build)"
+  },
+
+  "contact": {
+    "emailLabel": "Email",
+    "emailIcon": "bx-envelope",
+    "email": "sanjayperingayil@gmail.com",
+    "emailHref": "mailto:sanjayperingayil@gmail.com",
+    "_emailHrefCorrection": "C1 — old href was mailto:examplemail@gmail.com.com",
+    "phones": [
+      {
+        "label": "Whatsapp India",
+        "icon": "uil-whatsapp",
+        "display": "+91 90613 81726",
+        "whatsappHref": "https://api.whatsapp.com/send?phone=919061381726&text=Hello, more information!",
+        "oldWhatsappHref": "https://api.whatsapp.com/send?phone=9061381726&text=Hello, more information!",
+        "_source": "both",
+        "_note": "U11 — resume format; old display '+91-906-138-1726', old link missing 91"
+      },
+      {
+        "label": "Whatsapp UAE",
+        "icon": "uil-whatsapp",
+        "display": "+971-588-393-705",
+        "whatsappHref": "https://api.whatsapp.com/send?phone=971588393705&text=Hello, more information!",
+        "_source": "old-site",
+        "_id": "O22"
+      }
+    ],
+    "social": [
+      { "network": "linkedin", "url": "https://www.linkedin.com/in/sanjay-purushothaman-5223aa224/", "_source": "both", "_note": "Resume shows a LinkedIn link; URL taken from old site" },
+      { "network": "github", "url": "https://github.com/sanjayperingayil2000", "_source": "old-site", "_id": "O23" },
+      { "network": "instagram", "url": "https://www.instagram.com/sanjayperingayil?igsh=eGJmMzgzcThyMmZm", "_source": "old-site", "_id": "O24" },
+      { "network": "facebook", "url": "https://www.facebook.com/share/1EM19GJhb8/", "_source": "old-site", "_id": "O25" }
+    ],
+    "disabled": [
+      { "network": "messenger", "title": "Messenger", "icon": "uil-facebook-messenger-alt", "label": "Sanjay peringayil", "url": "https://m.me/crypticalcoder", "_source": "old-site", "_id": "O27", "_note": "Commented out on old site; stays disabled" },
+      { "network": "x", "url": null, "_source": "old-site", "_id": "O28", "_note": "Commented-out icon only; stays disabled" }
+    ],
+    "form": {
+      "provider": "emailjs",
+      "envVars": ["NEXT_PUBLIC_EMAILJS_SERVICE_ID", "NEXT_PUBLIC_EMAILJS_TEMPLATE_ID", "NEXT_PUBLIC_EMAILJS_PUBLIC_KEY"],
+      "fields": [
+        { "label": "Name", "name": "name", "type": "text", "placeholder": "Insert your name" },
+        { "label": "Mail", "name": "email", "type": "email", "placeholder": "Insert your email" },
+        { "label": "Project", "name": "project", "type": "textarea", "placeholder": "Write your project" }
+      ],
+      "submitLabel": "Send Message",
+      "_source": "old-site"
+    }
+  },
+
+  "sections": {
+    "_source": "old-site",
+    "_id": "O26",
+    "logo": { "text": "Sanjay", "href": "#home", "_correction": "C7 — was href 'index.html'" },
+    "nav": [
+      { "label": "Home", "href": "#home", "icon": "uil-estate" },
+      { "label": "About", "href": "#about", "icon": "uil-user" },
+      { "label": "Skills", "href": "#skills", "icon": "uil-file-alt" },
+      { "label": "Services", "href": "#services", "icon": "uil-briefcase-alt" },
+      { "label": "Portfolio", "href": "#portfolio", "icon": "uil-scenery", "_correction": "C5 — was 'portfolio'" },
+      { "label": "Contact", "href": "#contact", "icon": "uil-message" }
+    ],
+    "scrollUp": { "icon": "uil-arrow-up", "showAfterScrollY": 560 },
+    "home": {
+      "title": "Sanjay",
+      "subtitles": [
+        "Forward Deployed Engineer",
+        "Applied AI & Agentic Systems",
+        "Full-Stack (Next.js, Node.js, AWS)"
+      ],
+      "_subtitlesSource": "resume (U2)",
+      "oldSubtitles": ["Full Stack Developer", "AI automation & agent (n8n)"],
+      "description": "Forward Deployed–oriented engineer with 5+ years of professional experience across software engineering and digital product delivery, including 4+ years building and shipping production full-stack and cloud systems.",
+      "_descriptionSource": "derived (U3 / Q4) — first sentence of resume summary",
+      "oldDescription": "As a Full Stack Developer, I'm passionate about crafting dynamic and responsive web applications. I bring experience in both front-end and back-end development, complemented by my expertise as an n8n Developer focused on AI automation and AI agent generation. I'm consistently eager to explore new technologies and enhance my skill set.",
+      "cta": { "label": "Say Hello", "href": "#contact" },
+      "scrollDown": { "label": "Scroll Down", "href": "#about" },
+      "heroImage": "snjy07.jpg"
+    },
+    "about": {
+      "title": "About Me",
+      "subtitle": "My introduction",
+      "image": "snjy00.JPG",
+      "description": "USE profile.summary",
+      "_descriptionSource": "resume (U4)",
+      "oldDescription": "I'm a Full Stack Developer with a passion for creating dynamic and responsive web applications. My experience spans both front-end and back-end development, and I specialize as an n8n Developer for AI automation and AI agent generation. I'm always eager to learn new technologies and improve my skills.",
+      "stats": [
+        { "icon": "uil-award", "title": "Experience", "subtitle": "5+ Years Working", "_source": "both", "_note": "U5 — old '4+ Years Working'" },
+        { "icon": "uil-briefcase-alt", "title": "Completed", "subtitle": "18 + Projects", "_source": "old-site", "_id": "O3" },
+        { "icon": "bx-headphone-mic", "title": "Support", "subtitle": "Online 24/7", "_source": "old-site", "_id": "O4" }
+      ],
+      "cvButtonLabel": "Download CV",
+      "oldCvFile": "sanjay-resume-2026.pdf",
+      "_cvNote": "Replaced by the new resume (rule 3)"
+    },
+    "skills": { "title": "Skills", "subtitle": "My technical level" },
+    "services": { "title": "Services", "subtitle": "What I offer", "_correction": "C3 — was 'What i offer'", "buttonLabel": "View More" },
+    "qualification": {
+      "title": "Qualification",
+      "subtitle": "My personal journey",
+      "tabs": [
+        { "label": "Education", "icon": "uil-graduation-cap", "default": true },
+        { "label": "Experience", "icon": "uil-briefcase-alt" }
+      ]
+    },
+    "portfolio": { "title": "Portfolio", "subtitle": "Most recent works", "cardButtonLabel": "Demo" },
+    "testimonials": { "title": "My clients say", "subtitle": "Testimonial", "_correction": "C4 — was 'My  clients say'" },
+    "contact": {
+      "title": "Get in touch",
+      "subtitle": "Contact Me",
+      "leftHeading": "Talk to me",
+      "formHeading": "Write me your project",
+      "cardButtonLabel": "Write me"
+    },
+    "footer": {
+      "title": "Sanjay P Purushothaman",
+      "_titleNote": "U1 — old 'Sanjay Peringayil'",
+      "links": [
+        { "label": "About", "href": "#about" },
+        { "label": "Projects", "href": "#portfolio" },
+        { "label": "Testimonials", "href": "#testimonials" }
+      ],
+      "socialNetworks": ["facebook", "instagram", "linkedin"],
+      "copyright": "© Sanjay P Purushothaman. All rights reserved",
+      "_correction": "C2 — was '© SanjayPeringayil. All rigths reserved'"
+    }
+  },
+
+  "experience": [
+    {
+      "role": "Associate Consultant",
+      "company": "Zimble Systems Pvt. Ltd.",
+      "location": null,
+      "start": "2026-02",
+      "end": null,
+      "dates": "Feb 2026 – Present",
+      "bullets": [
+        "Own the entire frontend of Config App, the company’s core product a single Next.js application through which multiple backend services are configured and managed; currently leading its frontend development.",
+        "Participate in client calls for requirement discussions, translating client needs into scoped frontend features and delivery priorities.",
+        "Designed and built HyperConfigurator from scratch within the Config App ecosystem: a Node.js serverless backend on AWS Lambda, a Next.js frontend with Zustand state management, and integration of a specialised Python API.",
+        "Own deployments end to end: GitLab CI/CD pipelines, Docker image builds, and releases to AWS EC2, ECS and Kubernetes.",
+        "Monitor and debug production with AWS CloudWatch, using log analysis to diagnose issues across services and sustain uptime.",
+        "Maintain manifest-driven application servers, managing MongoDB integrations and secure GitHub authentication."
+      ],
+      "_source": "resume",
+      "_id": "N1"
+    },
+    {
+      "role": "Full Stack Developer",
+      "company": "JAH Transport LLC",
+      "location": null,
+      "start": "2025-06",
+      "end": "2026-01",
+      "dates": "Jun 2025 – Jan 2026",
+      "bullets": [
+        "Built and deployed an Inventory & Supply Chain Management application (Next.js, MongoDB, REST APIs) that digitised daily operational tracking for the business.",
+        "Implemented role-based access control (RBAC) across the admin dashboard, securing data and tailoring functionality to each department."
+      ],
+      "_source": "both",
+      "_id": "U6",
+      "oldSite": { "role": "Full Stack developer", "company": "JAH Transport by heavy & light trucks LLC", "dates": "2025 - 2026" }
+    },
+    {
+      "role": "Junior Software Engineer",
+      "company": "Softnotions Technologies Pvt. Ltd.",
+      "location": null,
+      "start": "2023-03",
+      "end": "2025-06",
+      "dates": "Mar 2023 – Jun 2025",
+      "bullets": [
+        "Shipped AI-powered features, including contextual content suggestions using the OpenAI API, integrated directly into React interfaces.",
+        "Developed full-stack applications with Next.js, React.js and Node.js, improving frontend responsiveness and backend efficiency.",
+        "Designed REST and GraphQL APIs powering dynamic UI components and third-party integrations.",
+        "Containerised Node.js services with Docker and built Jenkins CI/CD pipelines for consistent staging and production releases.",
+        "Built real-time analytics dashboards and enforced security with OAuth2, JWT and strict input validation."
+      ],
+      "_source": "both",
+      "_id": "U7",
+      "oldSite": { "role": "Junior Software Engineer", "company": "Softnotions Technologies Private Limited", "dates": "2023 - 2025" }
+    },
+    {
+      "role": "MERN Stack Developer Trainee",
+      "company": "Prepbytes",
+      "location": "Remote",
+      "start": "2022-07",
+      "end": "2023-03",
+      "dates": "Jul 2022 – Mar 2023",
+      "bullets": [
+        "Built CRUD blog platforms and secure admin dashboards (MongoDB, Express.js, React) with JWT authentication, validation and multi-format file uploads, working in Agile sprints with peer code reviews."
+      ],
+      "_source": "both",
+      "_id": "U8",
+      "oldSite": { "role": "Full Stack developer Program", "company": "Preb bytes.com", "dates": "2022 - 2023" }
+    },
+    {
+      "role": "Graphic Designer",
+      "company": "Calypso Branding Partner",
+      "location": null,
+      "start": "2021-07",
+      "end": "2022-06",
+      "dates": "Jul 2021 – Jun 2022",
+      "bullets": [
+        "Designed high-fidelity UI layouts and built responsive, semantic marketing landing pages (HTML5, CSS3), developing the user-centred design sense used in client-facing solution work today."
+      ],
+      "_source": "both",
+      "_id": "U9",
+      "oldSite": { "role": "Graphic Designer", "company": "Calypso Innovative Branding Partner", "dates": "2021 - 2022" }
+    }
+  ],
+
+  "projects": {
+    "filters": ["all", "ai", "ui", "business", "blog"],
+    "_filtersNote": "'ai' is new (Q5); others from old site",
+    "items": [
+      {
+        "slug": "dhaga-order-resolution-assistant",
+        "title": "Dhaga & Co. AI-Powered D2C Order Resolution Assistant",
+        "context": "FDE Academy, Cohort 3",
+        "category": "ai",
+        "bullets": [
+          "Owned an end-to-end Forward Deployed engagement for a D2C brand, scoping repetitive “Where is my order?” (WISMO) queries — answered in ~9 hours on average — as the core support bottleneck through stakeholder-led discovery.",
+          "Architected a 7-stage agentic LLM pipeline: intent and sub-intent routing, order-ID extraction with regex fallback, Supabase lookup, structured fact extraction, response generation, validation and fail-closed fallback — replacing the ~9-hour manual turnaround with real-time answers.",
+          "Designed a tiered two-model strategy: Gemini Flash-Lite for high-frequency classification, extraction and validation; a higher-tier Gemini Flash model only for bilingual English/Hinglish response generation, minimising token cost and latency.",
+          "Built an anti-hallucination guardrail (evaluator pattern) that audits every response against database ground truth; on a failed check or timeout, a fail-closed engine sends a deterministic templated reply, so unverified claims never reach customers.",
+          "Chose direct relational lookups over vector RAG for exact, real-time order data (status, ETA, courier, payment mode), keeping the LLM strictly as the language layer over a deterministic source of truth; defended the architecture and trade-offs to executive stakeholders."
+        ],
+        "techStack": ["TypeScript", "Node.js", "Express", "React", "Vite", "Tailwind CSS", "Google Gemini API (@google/genai)", "Supabase (PostgreSQL)"],
+        "liveUrl": "TODO (optional, Q6)",
+        "repoUrl": "TODO (optional, Q6)",
+        "image": "TODO (Q6)",
+        "_source": "resume",
+        "_id": "N6"
+      },
+      {
+        "slug": "slack-team-insights",
+        "title": "Slack Team Insights AI Workflow Automation",
+        "context": "FDE Academy, Cohort 3",
+        "category": "ai",
+        "bullets": [
+          "Built an AI-powered workflow (Slack → Python → Gemini → Team Insights) that turns scattered Slack team updates into concise, readable team summaries.",
+          "Integrated Slack APIs to collect team updates and wrote Python automation to process them and prompt the Gemini API for summary generation.",
+          "Brought AI into the tool where the team already works, so insights reach people without changing their workflow.",
+          "Designed it as a Slack-based AI chatbot workflow, so team members get summaries and insights directly inside Slack rather than in a separate tool.",
+          "Delivered a working end-to-end prototype within the hackathon timeframe, demonstrating how collaboration platforms can be connected to LLMs to cut the time spent reading through team updates."
+        ],
+        "techStack": ["Python", "Slack API", "Google Gemini API"],
+        "liveUrl": "TODO (optional, Q6)",
+        "repoUrl": "TODO (optional, Q6)",
+        "image": "TODO (Q6)",
+        "_source": "resume",
+        "_id": "N7"
+      },
+      { "slug": "ai-application", "title": "AI application", "_correction": "C6 — was 'Ai application'", "category": "ui", "liveUrl": "https://ui001-beta.vercel.app/", "repoUrl": null, "description": null, "techStack": [], "image": "brainwaveui.png", "_source": "old-site", "_id": "O11" },
+      { "slug": "business-service", "title": "Business service", "category": "business", "liveUrl": "https://ikonext.vercel.app/", "repoUrl": null, "description": null, "techStack": [], "image": "ikon.png", "_source": "old-site", "_id": "O12" },
+      { "slug": "logistics-company", "title": "Logistics Company", "category": "business", "liveUrl": "https://transportlogistics.vercel.app/", "repoUrl": null, "description": null, "techStack": [], "image": "logistics.png", "_source": "old-site", "_id": "O13" },
+      { "slug": "coffee-shop", "title": "Coffee Shop", "category": "ui", "liveUrl": "https://coffeui.vercel.app/", "repoUrl": null, "description": null, "techStack": [], "image": "coffeeui.png", "_source": "old-site", "_id": "O14" },
+      { "slug": "ecommerce-app", "title": "Ecommerce app", "category": "business", "liveUrl": "https://ecommerce002.vercel.app/", "repoUrl": null, "description": null, "techStack": [], "image": "ecommerce002.png", "_source": "old-site", "_id": "O15" },
+      { "slug": "hotel-booking-web", "title": "Hotel Booking Web", "category": "business", "liveUrl": "https://hotelbooking001.vercel.app/", "repoUrl": null, "description": null, "techStack": [], "image": "hotel001.png", "_source": "old-site", "_id": "O16" },
+      { "slug": "blog-web", "title": "Blog web", "category": "blog", "liveUrl": "https://incredible-nasturtium-a80245.netlify.app/", "repoUrl": null, "description": null, "techStack": [], "image": "blog001.png", "_source": "old-site", "_id": "O17" },
+      { "slug": "dashboard-ui", "title": "Dashboard UI", "category": "ui", "liveUrl": "https://dashboard001-kappa.vercel.app/dashboard", "repoUrl": null, "description": null, "techStack": [], "image": "muikit.png", "_source": "old-site", "_id": "O18" }
+    ]
+  },
+
+  "skills": {
+    "_structure": "resume (U12, U13)",
+    "groups": [
+      {
+        "name": "Applied AI & LLMs",
+        "items": ["Agentic AI design patterns", "multi-model LLM orchestration & routing", "LLM guardrails and evaluator/validator patterns", "fail-closed design", "LangChain", "Google Gemini API", "OpenAI API", "prompt & context engineering", "entity extraction", "AI workflow automation (n8n, Python)", "Slack API integrations", "RAG (in progress)"],
+        "_source": "resume",
+        "_note": "Absorbs old 'AI (No code)' group: n8n, Automation, Agent"
+      },
+      {
+        "name": "Forward Deployed & Consulting",
+        "items": ["Stakeholder-led problem discovery", "requirement discovery", "PRDs", "solution design documents", "MVP scoping", "trade-off communication", "executive client presentations"],
+        "_source": "resume"
+      },
+      {
+        "name": "Backend",
+        "items": ["Node.js", "Express.js", "NestJS", "Python API integration", "REST", "GraphQL", "microservices", "serverless"],
+        "_source": "resume"
+      },
+      {
+        "name": "Frontend",
+        "items": ["React.js", "Next.js", "TypeScript", "JavaScript", "Vite", "Tailwind CSS", "Zustand", "HTML5", "CSS3"],
+        "oldSiteOnlyItems": [
+          { "name": "Bootstrap", "_id": "O20" },
+          { "name": "Wordpress", "_id": "O19" }
+        ],
+        "_source": "resume"
+      },
+      {
+        "name": "Cloud & DevOps",
+        "items": ["AWS (Lambda, EC2, ECS, CloudWatch, S3, Cognito)", "Docker", "Kubernetes", "GitLab CI/CD", "Jenkins", "GitHub Actions"],
+        "_source": "resume"
+      },
+      {
+        "name": "Data & Security",
+        "items": ["PostgreSQL", "Supabase", "MongoDB", "OAuth2", "JWT", "RBAC", "input validation"],
+        "_source": "resume"
+      },
+      {
+        "name": "Practices",
+        "items": ["System design", "manifest-driven architecture", "design patterns", "MVC", "Agile/Scrum"],
+        "_source": "resume"
+      }
+    ],
+    "legacyLevels": {
+      "_id": "O21",
+      "_source": "old-site",
+      "_note": "Old-site proficiency levels, verbatim names. Resume has no levels. Keep/drop/display TBD.",
+      "Frontend Developer": { "HTML": "Advanced", "CSS": "Advanced", "Javascript": "Professional", "Wordpress": "Intermediate", "React": "Advanced", "Next": "Advanced", "Bootstrap": "Advanced", "Tailwind": "Intermediate" },
+      "Backend Developer": { "Node Js": "Advanced", "Express": "Intermediate", "Nest Js": "Basic", "AWS": "Intermediate", "Mongodb": "Advanced", "Postgresql": "Intermediate", "GraphQL": "Intermediate", "REST API": "Advanced" },
+      "AI (No code)": { "n8n": "Basic", "Automation": "Basic", "Agent": "Basic" }
+    }
+  },
+
+  "education": [
+    {
+      "title": "PGP in Forward Deployed Engineering & Applied AI Solutions",
+      "institution": "FDE Academy, Bengaluru",
+      "dates": "Aug 2026 – Present",
+      "description": "Selective program (≈4% acceptance). Dual-track: production AI engineering (LLM apps, agents, RAG, evaluation, deployment) and consulting (discovery, PRDs, solution design, client delivery). Hands-on labs: LangChain use cases (LLM workflows, chains and agents); currently studying advanced RAG.",
+      "_source": "resume",
+      "_id": "N8"
+    },
+    {
+      "title": "MBA in Artificial Intelligence",
+      "institution": "Amrita Vishwa Vidyapeetham",
+      "dates": "April 2026 – Present",
+      "description": null,
+      "_source": "resume",
+      "_id": "N9"
+    },
+    {
+      "title": "B.Tech in Electronics and Communication Engineering",
+      "institution": "APJ Abdul Kalam Technological University",
+      "dates": "2017 – 2021",
+      "description": null,
+      "_source": "both",
+      "_id": "U10",
+      "oldSite": { "title": "Bachlor's Degree", "institution": "A.P.J Abdul kalam Technological  university", "dates": "2017 - 2021" }
+    },
+    {
+      "title": "Diploma",
+      "institution": "Kerala Academy for Skills Excellence (KASE)",
+      "dates": "2017 – 2019",
+      "description": null,
+      "_source": "old-site",
+      "_id": "O1",
+      "oldSite": { "dates": "2017 - 2019", "_correction": "C8 — hyphen → en dash to match resume style" }
+    },
+    {
+      "title": "High School",
+      "institution": "Kerala State Board",
+      "dates": "2015 – 2017",
+      "description": null,
+      "_source": "old-site",
+      "_id": "O2",
+      "oldSite": { "dates": "2015 - 2017", "_correction": "C8 — hyphen → en dash to match resume style" }
+    }
+  ],
+
+  "certifications": [
+    {
+      "title": "Certificate — Dhaga & Co. Client Engagement",
+      "topics": "Agentic Design Patterns, LLM Orchestration, Problem Discovery, MVP Engineering",
+      "issuer": "FDE Academy",
+      "date": "Oct 2026",
+      "_source": "resume",
+      "_id": "N10"
+    },
+    {
+      "title": "Generative AI Certification",
+      "issuer": "Skill India & National Skill Development Corporation (NSDC)",
+      "date": null,
+      "_source": "resume",
+      "_id": "N11"
+    }
+  ],
+
+  "awards": [],
+  "publications": [],
+
+  "services": [
+    {
+      "icon": "uil-web-grid",
+      "cardTitleLines": ["Full Stack", "Web Apps"],
+      "modalTitle": "Full Stack Web Application",
+      "modalDescription": "Scalable, responsive, and modern web applications built from scratch using the latest fullstack technologies.",
+      "bullets": [
+        "End-to-end development with React.js, Next.js, Node.js & databases like MongoDB/PostgreSQL",
+        "Fully responsive, SEO-friendly, and user-centric designs",
+        "RESTful & GraphQL API integration with secure authentication",
+        "Admin dashboards, content management, and analytics-ready setups",
+        "Clean, maintainable codebase with Git and deployment pipelines"
+      ],
+      "_source": "old-site",
+      "_id": "O5"
+    },
+    {
+      "icon": "uil-arrow",
+      "cardTitleLines": ["Website", "Maintenance"],
+      "modalTitle": "Ensuring Your Website Runs Smoothly 24/7",
+      "modalDescription": "Reliable ongoing support to keep your website secure, updated, and running smoothly at all times.",
+      "bullets": [
+        "Regular bug fixes, performance tuning, and content updates",
+        "Uptime monitoring, backups, and security enhancements",
+        "CMS adjustments or plugin/module integration",
+        "Troubleshooting deployment issues and broken functionalities",
+        "Adding new sections or pages without disrupting existing systems"
+      ],
+      "_source": "old-site",
+      "_id": "O6"
+    },
+    {
+      "icon": "uil-edit",
+      "cardTitleLines": ["Graphic", "Design"],
+      "modalTitle": "Designs That Speak for Your Brand",
+      "modalDescription": "Creative and brand-aligned visuals for digital and print that leave a lasting impression.",
+      "bullets": [
+        "Custom logo, poster, and brochure design",
+        "Social media creatives with consistent visual branding",
+        "Clean, professional, and pixel-perfect designs",
+        "Fast delivery with multiple format exports (PNG, PDF, SVG)",
+        "Social media marketing visuals for brand engagement and promotions"
+      ],
+      "_source": "old-site",
+      "_id": "O7"
+    }
+  ],
+
+  "testimonials": [
+    {
+      "name": "Sreehari",
+      "image": "testimonial1.png",
+      "quote": "Worked with me as a freelance developer and delivered a fully functional, responsive website tailored to client needs. Reliable, technically sound, and quick to adapt to feedback throughout the project.",
+      "_source": "old-site",
+      "_id": "O8"
+    },
+    {
+      "name": "Jibu Thomas",
+      "image": "jibu.jpg",
+      "quote": "A proactive and reliable team player. Consistently led development efforts with precision and played a key role in successful project deliveries within tight deadlines.",
+      "_source": "old-site",
+      "_id": "O9"
+    },
+    {
+      "name": "Sufair",
+      "image": "suf01.jpg",
+      "quote": "Handled our brand’s visual identity and online presence with creativity and consistency. Designed impactful visuals and ran social campaigns that enhanced our engagement and reach.",
+      "_source": "old-site",
+      "_id": "O10"
+    }
+  ]
+}
