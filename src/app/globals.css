@@ -1,0 +1,256 @@
+@import "tailwindcss";
+
+/* Theme class is set on <html> by next-themes. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ==========================================================================
+   Design tokens — see _audit/DESIGN_SYSTEM.md (approved 2026-10-30)
+   ========================================================================== */
+
+:root {
+  color-scheme: light;
+
+  --bg: #f7f7f8;
+  --surface: #ffffff;
+  --surface-glass: rgb(255 255 255 / 0.6);
+  --surface-glass-fallback: rgb(255 255 255 / 0.92);
+  --border: #e2e2e6;
+  --border-glass: rgb(24 24 27 / 0.08);
+  --glass-highlight: rgb(255 255 255 / 0.9);
+
+  --text: #18181b;
+  --text-muted: #52525b;
+
+  --accent: #0d6e66;
+  --accent-tint: #14b8a6;
+  --accent-foreground: #ffffff;
+  --ring: #0d6e66;
+
+  --blob-accent: var(--accent-tint);
+  --blob-neutral: #a1a1aa;
+  --blob-opacity: 0.18;
+  --grain-opacity: 0.035;
+
+  --glass-blur: 16px;
+  --glass-saturate: 180%;
+
+  --space-section: clamp(4rem, 2.435rem + 6.957vw, 8rem);
+  --gutter: clamp(1rem, 0.6087rem + 1.7391vw, 2rem);
+  --container: 72rem;
+
+  --dur-instant: 100ms;
+  --dur-fast: 150ms;
+  --dur-base: 250ms;
+  --dur-slow: 400ms;
+  --dur-reveal: 600ms;
+  --dur-theme: 450ms;
+}
+
+.dark {
+  color-scheme: dark;
+
+  --bg: #0c0c0e;
+  --surface: #18181b;
+  --surface-glass: rgb(255 255 255 / 0.06);
+  --surface-glass-fallback: #1c1c20;
+  --border: #3f3f46;
+  --border-glass: rgb(255 255 255 / 0.1);
+  --glass-highlight: rgb(255 255 255 / 0.08);
+
+  --text: #f4f4f5;
+  --text-muted: #acacb5;
+
+  --accent: #2dd4bf;
+  --accent-tint: #0d6e66;
+  --accent-foreground: #0c0c0e;
+  --ring: #2dd4bf;
+
+  --blob-accent: var(--accent);
+  --blob-neutral: #71717a;
+  --blob-opacity: 0.16;
+  --grain-opacity: 0.05;
+
+  --glass-blur: 20px;
+  --glass-saturate: 140%;
+
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.4);
+  --shadow-md: 0 1px 3px rgb(0 0 0 / 0.35), 0 4px 12px rgb(0 0 0 / 0.4);
+  --shadow-lg: 0 2px 6px rgb(0 0 0 / 0.3), 0 16px 40px rgb(0 0 0 / 0.5);
+  --shadow-glass: inset 0 1px 0 var(--glass-highlight), 0 8px 32px rgb(0 0 0 / 0.45);
+}
+
+/* Map semantic tokens to Tailwind utilities (bg-bg, text-fg, text-muted, bg-accent …).
+   The reset comes first: one accent, neutral base, no default Tailwind palette. */
+@theme inline {
+  --color-*: initial;
+  --color-white: #fff;
+  --color-black: #000;
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-fg: var(--text);
+  --color-muted: var(--text-muted);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-border-glass: var(--border-glass);
+  --color-ring: var(--ring);
+
+  --font-display: var(--font-instrument-serif), ui-serif, Georgia, serif;
+  --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+}
+
+@theme {
+  /* Fluid type scale (360px → 1280px). */
+  --text-xs: 0.75rem;
+  --text-sm: clamp(0.875rem, 0.8505rem + 0.1087vw, 0.9375rem);
+  --text-base: clamp(1rem, 0.9755rem + 0.1087vw, 1.0625rem);
+  --text-lg: clamp(1.125rem, 1.0761rem + 0.2174vw, 1.25rem);
+  --text-xl: clamp(1.25rem, 1.1522rem + 0.4348vw, 1.5rem);
+  --text-2xl: clamp(1.5rem, 1.3533rem + 0.6522vw, 1.875rem);
+  --text-3xl: clamp(1.75rem, 1.4565rem + 1.3043vw, 2.5rem);
+  --text-4xl: clamp(2.125rem, 1.587rem + 2.3913vw, 3.5rem);
+  --text-5xl: clamp(2.5rem, 1.6196rem + 3.913vw, 4.75rem);
+
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-2xl: 2rem;
+
+  /* Light values; .dark overrides them above. */
+  --shadow-sm: 0 1px 2px rgb(24 24 27 / 0.06);
+  --shadow-md: 0 1px 3px rgb(24 24 27 / 0.05), 0 4px 12px rgb(24 24 27 / 0.06);
+  --shadow-lg: 0 2px 6px rgb(24 24 27 / 0.04), 0 16px 40px rgb(24 24 27 / 0.08);
+  --shadow-glass: inset 0 1px 0 var(--glass-highlight), 0 8px 32px rgb(24 24 27 / 0.06);
+
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: var(--font-sans);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Sections are scroll targets below the fixed nav. */
+  section[id] {
+    scroll-margin-top: 6rem;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+
+  ::selection {
+    background-color: var(--accent);
+    color: var(--accent-foreground);
+  }
+
+  /* Smooth theme change: themed properties only, never `* { transition }`. */
+  body,
+  a,
+  button,
+  input,
+  textarea,
+  .glass,
+  .glass-nav,
+  .glass-sm,
+  .bg-layer > * {
+    transition-property: background-color, border-color, color, fill, stroke, box-shadow, opacity;
+    transition-duration: var(--dur-base);
+    transition-timing-function: var(--ease-standard);
+  }
+}
+
+/* ==========================================================================
+   Glass surfaces
+   ========================================================================== */
+
+@layer components {
+  .glass,
+  .glass-nav,
+  .glass-sm {
+    background: var(--surface-glass);
+    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+    backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+    border: 1px solid var(--border-glass);
+  }
+
+  .glass {
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-glass);
+  }
+
+  .glass-nav {
+    border-radius: 9999px;
+    box-shadow: var(--shadow-glass);
+    -webkit-backdrop-filter: blur(calc(var(--glass-blur) + 4px)) saturate(var(--glass-saturate));
+    backdrop-filter: blur(calc(var(--glass-blur) + 4px)) saturate(var(--glass-saturate));
+  }
+
+  .glass-sm {
+    border-radius: 9999px;
+  }
+
+  @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    .glass,
+    .glass-nav,
+    .glass-sm {
+      background: var(--surface-glass-fallback);
+    }
+  }
+
+  @media (prefers-reduced-transparency: reduce) {
+    .glass,
+    .glass-nav,
+    .glass-sm {
+      background: var(--surface-glass-fallback);
+      -webkit-backdrop-filter: none;
+      backdrop-filter: none;
+    }
+  }
+
+  /* Film grain over the background blobs; removes banding. */
+  .grain {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 160px 160px;
+    opacity: var(--grain-opacity);
+  }
+}
+
+/* ==========================================================================
+   Theme switch via View Transitions (see components/ui/ThemeToggle.tsx)
+   ========================================================================== */
+
+.theme-vt,
+.theme-vt * {
+  transition: none !important;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
