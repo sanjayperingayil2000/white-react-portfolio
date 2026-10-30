@@ -4,6 +4,7 @@ import { BackgroundOrbs } from "@/components/layout/BackgroundOrbs";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import { ScrollToTop } from "@/components/layout/ScrollToTop";
+import { MotionProvider } from "@/components/motion/MotionProvider";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { profile } from "@/content/profile";
 import { site } from "@/content/site";
@@ -58,13 +59,20 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       suppressHydrationWarning
       className={`${display.variable} ${body.variable}`}
     >
-      <body className="min-h-dvh">
+      {/* relative: the page-length orb layer is positioned against the body. */}
+      <body className="relative min-h-dvh">
+        {/* Without JS, reveal targets would stay at their initial opacity: 0. */}
+        <noscript>
+          <style>{"[data-reveal]{opacity:1!important;transform:none!important}"}</style>
+        </noscript>
         <ThemeProvider>
-          <BackgroundOrbs />
-          <Navbar />
-          <main>{children}</main>
-          <Footer />
-          <ScrollToTop />
+          <MotionProvider>
+            <BackgroundOrbs />
+            <Navbar />
+            <main>{children}</main>
+            <Footer />
+            <ScrollToTop />
+          </MotionProvider>
         </ThemeProvider>
       </body>
     </html>

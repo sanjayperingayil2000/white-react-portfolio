@@ -1,3 +1,4 @@
+import { Reveal } from "@/components/motion/Reveal";
 import { Container } from "@/components/ui/Container";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { Icon } from "@/components/ui/Icon";
@@ -14,9 +15,9 @@ export function Education() {
         <SectionHeading id="education-title" {...sections.education} />
 
         <ol className="grid gap-6 md:grid-cols-2">
-          {education.map((item) => (
+          {education.map((item, i) => (
             // Entries with a programme description get the full row.
-            <li key={item.title} className={cn(item.description && "md:col-span-2")}>
+            <Reveal as="li" key={item.title} index={i} className={cn(item.description && "md:col-span-2")}>
               <GlassCard className="flex h-full gap-4">
                 <Icon name="graduation-cap" className="mt-0.5 size-6 shrink-0 text-muted" />
                 <div>
@@ -26,7 +27,7 @@ export function Education() {
                   {item.description && <p className="mt-3 max-w-[75ch] text-sm text-muted">{item.description}</p>}
                 </div>
               </GlassCard>
-            </li>
+            </Reveal>
           ))}
         </ol>
       </Container>

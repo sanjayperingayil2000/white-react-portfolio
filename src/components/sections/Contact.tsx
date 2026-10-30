@@ -1,4 +1,5 @@
 import { ArrowRight, Send } from "lucide-react";
+import { Reveal } from "@/components/motion/Reveal";
 import { BrandIcon } from "@/components/ui/BrandIcon";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
@@ -36,26 +37,28 @@ export function Contact() {
           <div>
             <h3 className="mb-6 text-center text-lg font-semibold text-fg md:text-left">{labels.contactLeftHeading}</h3>
             <ul className="grid gap-4">
-              {cards.map((card) => (
-                <GlassCard as="li" key={card.key} className="p-5 sm:p-5">
-                  {card.icon}
-                  <p className="mt-2 text-sm font-semibold text-fg">{card.title}</p>
-                  <p className="text-sm text-muted">{card.value}</p>
-                  <a
-                    href={card.href}
-                    className="mt-2 inline-flex min-h-11 items-center gap-1 text-sm font-medium text-accent hover:underline"
-                    aria-label={`${labels.writeMe}: ${card.title}`}
-                    {...(card.external ? externalLinkProps : {})}
-                  >
-                    {labels.writeMe}
-                    <ArrowRight className="size-4" strokeWidth={1.5} aria-hidden="true" />
-                  </a>
-                </GlassCard>
+              {cards.map((card, i) => (
+                <Reveal as="li" key={card.key} index={i}>
+                  <GlassCard className="p-5 sm:p-5">
+                    {card.icon}
+                    <p className="mt-2 text-sm font-semibold text-fg">{card.title}</p>
+                    <p className="text-sm text-muted">{card.value}</p>
+                    <a
+                      href={card.href}
+                      className="mt-2 inline-flex min-h-11 items-center gap-1 text-sm font-medium text-accent hover:underline"
+                      aria-label={`${labels.writeMe}: ${card.title}`}
+                      {...(card.external ? externalLinkProps : {})}
+                    >
+                      {labels.writeMe}
+                      <ArrowRight className="size-4" strokeWidth={1.5} aria-hidden="true" />
+                    </a>
+                  </GlassCard>
+                </Reveal>
               ))}
             </ul>
           </div>
 
-          <div>
+          <Reveal index={1}>
             <h3 className="mb-6 text-center text-lg font-semibold text-fg md:text-left">{labels.contactFormHeading}</h3>
             {/* TODO(Phase 7): wire to /api/contact with the chosen email provider. Submit is disabled until then. */}
             <GlassCard as="div">
@@ -91,7 +94,7 @@ export function Contact() {
                 </Button>
               </form>
             </GlassCard>
-          </div>
+          </Reveal>
         </div>
       </Container>
     </section>

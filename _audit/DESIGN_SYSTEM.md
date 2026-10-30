@@ -422,3 +422,16 @@ If triggered by keyboard (no pointer coordinates), the circle starts from the ce
 - **Sun ↔ moon icon:** an SVG mask morph using only transforms and opacity. Its state comes from the `.dark` class, so it's correct before hydration. Transitions turn off under reduced motion.
 - **Accent usage, tightened:** section eyebrows, icons, dates and bullet markers are neutral. The accent is kept for CTAs, links, the active nav item and filter, the current-role timeline node and date, the availability dot and certification badges.
 - **Dialog and mobile menu surface:** `--surface-glass-fallback` (near-opaque) over a dimmed, blurred backdrop, so their text doesn't depend on what's behind them.
+
+---
+
+## 10. Scroll motion (Phase 6, medium intensity)
+
+All tuning lives in `src/components/motion/config.ts`: a global `intensity` multiplier, the parallax presets, and the reveal distance, duration and stagger.
+
+- **Background layer (replaces the fixed layer in §2.3):** 8 orbs spread down the full page height, on alternating sides so no two ever overlap (the §1.5 contrast numbers assume a single orb behind any point). Each orb lags the scroll by 32, 56 or 80px across its trip through the viewport, which reads as depth. The grain stays fixed.
+- **Parallax:** hero text and portrait drift 28px and 64px (measured from page top, so nothing shifts on load). Section headings lead the scroll by 24px. Everything uses `transform` only; native scrolling is unchanged.
+- **Reveal:** a 16px rise plus fade, played once, with a 60ms stagger inside groups of 3. The hero isn't revealed, because it's above the fold and that would delay LCP. A `<noscript>` rule keeps content visible without JavaScript.
+- **Reduced motion:** parallax is off. `MotionConfig reducedMotion="user"` removes the rise from reveals, leaving an opacity fade only.
+- **Touch (`pointer: coarse`):** parallax distances are halved, and orb parallax (the heaviest layers) is off. Reveals stay.
+- **Measured** in headless Chrome with CPU throttled 4× on a production build, scrolling the full page: p50, p95 and p99 frame times were 16.7ms, with no frames over 33ms and no long animation frames. Layout count matched the no-parallax baseline (44 vs 47), so there's no layout thrashing.

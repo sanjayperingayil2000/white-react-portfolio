@@ -1,5 +1,6 @@
 import { ArrowDown, Send } from "lucide-react";
 import Image from "next/image";
+import { Parallax } from "@/components/motion/Parallax";
 import { BrandIcon } from "@/components/ui/BrandIcon";
 import { ButtonLink } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
@@ -17,7 +18,8 @@ export function Hero() {
   return (
     <section id={SECTION_IDS.home} aria-labelledby="hero-title" className="pt-32 pb-(--space-section) sm:pt-40">
       <Container className="grid items-center gap-14 lg:grid-cols-[1.3fr_1fr] lg:gap-16">
-        <div>
+        {/* No reveal above the fold (keeps LCP immediate); the two columns drift at different rates. */}
+        <Parallax preset="heroText">
           <p className="glass-sm inline-flex items-center gap-2 px-3 py-1.5 text-xs font-medium text-muted">
             <span aria-hidden="true" className="size-1.5 rounded-full bg-accent" />
             {profile.availability} · {profile.location}
@@ -65,9 +67,9 @@ export function Hero() {
               </li>
             ))}
           </ul>
-        </div>
+        </Parallax>
 
-        <div className="relative mx-auto w-full max-w-[440px]">
+        <Parallax preset="heroImage" className="relative mx-auto w-full max-w-[440px]">
           <div className="glass p-2">
             <Image
               src={profile.heroImage.src}
@@ -88,7 +90,7 @@ export function Hero() {
               <p className="text-xs text-muted">{currentRole.company}</p>
             </div>
           )}
-        </div>
+        </Parallax>
       </Container>
 
       <Container className="mt-20 hidden lg:block">

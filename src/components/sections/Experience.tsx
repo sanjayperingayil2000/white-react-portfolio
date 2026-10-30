@@ -1,3 +1,4 @@
+import { Reveal } from "@/components/motion/Reveal";
 import { Container } from "@/components/ui/Container";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -14,10 +15,10 @@ export function Experience() {
 
         {/* Vertical timeline: the rail is the list's ::before, each entry has a node on it. */}
         <ol className="relative mx-auto max-w-3xl before:absolute before:top-3 before:bottom-3 before:left-[7px] before:w-px before:bg-border">
-          {experience.map((job) => {
+          {experience.map((job, i) => {
             const isCurrent = job.end === null;
             return (
-              <li key={`${job.company}-${job.start}`} className="relative pb-8 pl-10 last:pb-0 sm:pl-12">
+              <Reveal as="li" key={`${job.company}-${job.start}`} index={i} className="relative pb-8 pl-10 last:pb-0 sm:pl-12">
                 <span
                   aria-hidden="true"
                   className={cn(
@@ -50,7 +51,7 @@ export function Experience() {
                     ))}
                   </ul>
                 </GlassCard>
-              </li>
+              </Reveal>
             );
           })}
         </ol>

@@ -1,21 +1,56 @@
-const blob = (color: string): React.CSSProperties => ({
-  background: `radial-gradient(closest-side, var(${color}), transparent)`,
-  opacity: "var(--blob-opacity)",
-});
+import type { ParallaxPreset } from "@/components/motion/config";
+import { Parallax } from "@/components/motion/Parallax";
+
+type Orb = {
+  top: string;
+  side: "left" | "right";
+  inset: string;
+  size: string;
+  tone: "accent" | "neutral";
+  preset: ParallaxPreset;
+};
 
 /**
- * Fixed background behind the glass: two accent blobs, one neutral blob and grain.
- * Radial gradients instead of filter: blur() — same softness, far cheaper on mobile.
- * Opacity is capped by --blob-opacity; DESIGN_SYSTEM.md §1.5 contrast depends on it.
- * Static for now; the parallax (components/motion/Parallax.tsx) is added in the motion phase.
+ * Orbs alternate sides so they never overlap: DESIGN_SYSTEM.md §1.5 contrast assumes
+ * a single orb at --blob-opacity behind any point, never two stacked.
+ */
+const orbs: Orb[] = [
+  { top: "0%", side: "left", inset: "-10vmax", size: "42vmax", tone: "accent", preset: "orbFar" },
+  { top: "9%", side: "right", inset: "-12vmax", size: "34vmax", tone: "accent", preset: "orbNear" },
+  { top: "21%", side: "left", inset: "-8vmax", size: "38vmax", tone: "neutral", preset: "orbMid" },
+  { top: "34%", side: "right", inset: "-10vmax", size: "40vmax", tone: "accent", preset: "orbFar" },
+  { top: "47%", side: "left", inset: "-12vmax", size: "36vmax", tone: "accent", preset: "orbNear" },
+  { top: "60%", side: "right", inset: "-8vmax", size: "38vmax", tone: "neutral", preset: "orbMid" },
+  { top: "73%", side: "left", inset: "-10vmax", size: "40vmax", tone: "accent", preset: "orbFar" },
+  { top: "86%", side: "right", inset: "-12vmax", size: "34vmax", tone: "accent", preset: "orbNear" },
+];
+
+/**
+ * Background behind the glass: page-length orbs that lag the scroll at different
+ * rates (depth), plus fixed grain. Radial gradients instead of filter: blur() —
+ * same softness, far cheaper to paint.
  */
 export function BackgroundOrbs() {
   return (
-    <div aria-hidden="true" className="bg-layer pointer-events-none fixed inset-0 -z-10 overflow-hidden">
-      <div className="absolute -top-[12vmax] -left-[10vmax] size-[42vmax] rounded-full" style={blob("--blob-accent")} />
-      <div className="absolute top-[40%] -right-[12vmax] size-[34vmax] rounded-full" style={blob("--blob-accent")} />
-      <div className="absolute -bottom-[14vmax] -left-[6vmax] size-[38vmax] rounded-full" style={blob("--blob-neutral")} />
-      <div className="grain absolute inset-0" />
-    </div>
+    <>
+      <div aria-hidden="true" className="bg-layer pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+        {orbs.map((orb) => (
+          <Parallax
+            key={orb.top}
+            preset={orb.preset}
+            className="absolute rounded-full"
+            style={{
+              top: orb.top,
+              [orb.side]: orb.inset,
+              width: orb.size,
+              height: orb.size,
+              background: `radial-gradient(closest-side, var(${orb.tone === "accent" ? "--blob-accent" : "--blob-neutral"}), transparent)`,
+              opacity: "var(--blob-opacity)",
+            }}
+          />
+        ))}
+      </div>
+      <div aria-hidden="true" className="grain pointer-events-none fixed inset-0 -z-10" />
+    </>
   );
 }

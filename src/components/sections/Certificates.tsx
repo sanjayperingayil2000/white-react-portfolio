@@ -1,3 +1,4 @@
+import { Reveal } from "@/components/motion/Reveal";
 import { CertificateCard } from "@/components/sections/CertificateCard";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -13,10 +14,15 @@ export function Certificates() {
 
         {/* Flex + fixed widths (not grid) so a short last row stays centred. */}
         <ul className="flex flex-wrap justify-center gap-6">
-          {certificates.map((cert) => (
-            <li key={cert.slug} className="w-full sm:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-3rem)/3)]">
+          {certificates.map((cert, i) => (
+            <Reveal
+              as="li"
+              key={cert.slug}
+              index={i}
+              className="w-full sm:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-3rem)/3)]"
+            >
               <CertificateCard cert={cert} />
-            </li>
+            </Reveal>
           ))}
         </ul>
       </Container>

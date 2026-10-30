@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Reveal } from "@/components/motion/Reveal";
 import { FeaturedProjectCard, GalleryProjectCard } from "@/components/sections/ProjectCards";
 import { TiltCard } from "@/components/ui/TiltCard";
 import { labels, projectFilters } from "@/content/site";
@@ -37,19 +38,19 @@ export function ProjectsGrid({ projects }: { projects: Project[] }) {
       </div>
 
       <ul className="grid gap-6 md:grid-cols-2">
-        {visible.map((project) =>
+        {visible.map((project, i) =>
           project.kind === "featured" ? (
-            <li key={project.slug} className="md:col-span-2">
+            <Reveal as="li" key={project.slug} index={i} className="md:col-span-2">
               <TiltCard max={1.5}>
                 <FeaturedProjectCard project={project} />
               </TiltCard>
-            </li>
+            </Reveal>
           ) : (
-            <li key={project.slug}>
+            <Reveal as="li" key={project.slug} index={i}>
               <TiltCard>
                 <GalleryProjectCard project={project} />
               </TiltCard>
-            </li>
+            </Reveal>
           ),
         )}
       </ul>
