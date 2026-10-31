@@ -42,7 +42,7 @@
   --glass-blur: 16px;
   --glass-saturate: 180%;
 
-  --space-section: clamp(4rem, 2.435rem + 6.957vw, 8rem);
+  --space-section: clamp(3rem, 1.826rem + 5.217vw, 6rem);
   --gutter: clamp(1rem, 0.6087rem + 1.7391vw, 2rem);
   --container: 72rem;
 
@@ -416,6 +416,28 @@ html:has(dialog[open]) {
   /* Fewer, fainter orbs on phones would look flat; keep them but softer. */
   :root {
     --blob-opacity: 0.24;
+  }
+}
+
+/* ==========================================================================
+   Scroll reveal (components/motion/Reveal.tsx)
+   Visible by default; only blocks marked "pending" after hydration are hidden.
+   ========================================================================== */
+
+[data-reveal] {
+  transition:
+    opacity 500ms var(--ease-out) var(--reveal-delay, 0s),
+    transform 500ms var(--ease-out) var(--reveal-delay, 0s);
+}
+
+[data-reveal="pending"] {
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    transition: none;
   }
 }
 

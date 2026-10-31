@@ -26,16 +26,13 @@ export const motionConfig = {
   },
 
   reveal: {
-    /** Rise in px (scaled by intensity). Under reduced motion only the fade remains. */
-    distance: 16,
-    duration: 0.6,
+    /** Rise distance and duration live in globals.css ([data-reveal]). */
     /** Delay between neighbouring items, in seconds. */
-    stagger: 0.06,
+    stagger: 0.05,
     /** Items per stagger cycle (roughly one grid row), so long lists never wait. */
     staggerGroup: 3,
-    ease: [0.22, 1, 0.36, 1] as const,
-    /** Start a little after the element enters, so the motion is seen. */
-    viewportMargin: "0px 0px -8% 0px",
+    /** Start revealing this far below the viewport, so scrolling never shows blank space. */
+    revealAhead: "50%",
   },
 } as const;
 

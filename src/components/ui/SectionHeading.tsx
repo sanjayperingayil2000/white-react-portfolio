@@ -12,7 +12,7 @@ type SectionHeadingProps = SectionCopy & {
 
 export function SectionHeading({ id, title, subtitle, align = "center", className }: SectionHeadingProps) {
   return (
-    <Parallax preset="heading" className={cn("mb-12 sm:mb-16", className)}>
+    <Parallax preset="heading" className={cn("mb-10 sm:mb-12", className)}>
       <Reveal as="header" className={cn(align === "center" && "text-center")}>
         {subtitle && <p className="mb-3 text-xs font-semibold tracking-[0.12em] text-accent uppercase">{subtitle}</p>}
         <h2 id={id} className="font-display text-4xl leading-[1.05] tracking-[-0.015em] text-balance text-fg">

@@ -66,10 +66,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       {/* relative: the page-length orb layer is positioned against the body. */}
       <body className="relative min-h-dvh">
-        {/* Without JS, reveal targets would stay at their initial opacity: 0. */}
-        <noscript>
-          <style>{"[data-reveal]{opacity:1!important;transform:none!important}"}</style>
-        </noscript>
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[60] focus:rounded-md focus:bg-accent focus:px-4 focus:py-3 focus:text-sm focus:font-medium focus:text-accent-foreground"

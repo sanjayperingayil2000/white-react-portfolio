@@ -1,36 +1,68 @@
 "use client";
 
-import * as m from "motion/react-m";
+import { useEffect, useRef } from "react";
 import { motionConfig } from "@/components/motion/config";
 
-const { distance, duration, stagger, staggerGroup, ease, viewportMargin } = motionConfig.reveal;
+const { stagger, staggerGroup, revealAhead } = motionConfig.reveal;
 
-const tags = { div: m.div, li: m.li, article: m.article, header: m.header } as const;
+type Tag = "div" | "li" | "article" | "header";
 
 type RevealProps = {
   children: React.ReactNode;
   className?: string;
-  as?: keyof typeof tags;
+  as?: Tag;
   /** Position in a list; neighbours are staggered in groups of `staggerGroup`. */
   index?: number;
 };
 
+// One observer shared by every Reveal on the page.
+let observer: IntersectionObserver | null = null;
+function getObserver() {
+  observer ??= new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue;
+        (entry.target as HTMLElement).dataset.reveal = "shown";
+        observer?.unobserve(entry.target);
+      }
+    },
+    // Positive bottom margin: start the fade before the block reaches the screen,
+    // so fast scrolling never lands on empty space.
+    { rootMargin: `0px 0px ${revealAhead} 0px` },
+  );
+  return observer;
+}
+
 /**
- * Fades and rises in once, the first time it enters the viewport.
- * Reduced motion: MotionConfig (reducedMotion="user") drops the rise and keeps the fade.
- * No-JS: the <noscript> rule in layout.tsx forces [data-reveal] visible.
+ * Fades and rises in once as it approaches the viewport.
+ *
+ * Content is visible in the server HTML. Only after hydration are blocks that are
+ * still below the fold switched to "pending" (hidden by CSS), so if JS is slow,
+ * blocked or broken, nothing ever stays invisible. Blocks already on screen are
+ * left alone (no flash). Reduced motion: no hiding at all.
  */
-export function Reveal({ children, className, as = "div", index = 0 }: RevealProps) {
-  const Tag = tags[as];
+export function Reveal({ children, className, as: Tag = "div", index = 0 }: RevealProps) {
+  const ref = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (el.getBoundingClientRect().top < window.innerHeight) return; // on screen or above it
+
+    el.dataset.reveal = "pending";
+    const io = getObserver();
+    io.observe(el);
+    return () => io.unobserve(el);
+  }, []);
 
   return (
     <Tag
+      // The ref type differs per tag; all are HTMLElements.
+      ref={ref as React.Ref<never>}
       data-reveal=""
       className={className}
-      initial={{ opacity: 0, y: distance * motionConfig.intensity }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: viewportMargin }}
-      transition={{ duration, ease, delay: (index % staggerGroup) * stagger }}
+      style={{ "--reveal-delay": `${(index % staggerGroup) * stagger}s` } as React.CSSProperties}
     >
       {children}
     </Tag>
