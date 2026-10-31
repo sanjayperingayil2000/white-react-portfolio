@@ -28,7 +28,7 @@ export function ProjectsGrid({ projects }: { projects: Project[] }) {
               onClick={() => setFilter(f.value)}
               className={cn(
                 "min-h-11 rounded-full px-5 text-sm font-medium",
-                pressed ? "bg-accent text-accent-foreground shadow-sm" : "glass-sm text-muted hover:text-fg",
+                pressed ? "bg-brand text-accent-foreground shadow-glow" : "glass-sm text-muted hover:text-fg",
               )}
             >
               {f.label}

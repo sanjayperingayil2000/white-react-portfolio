@@ -6,10 +6,10 @@ export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 // Dark-theme tokens from DESIGN_SYSTEM.md (ImageResponse can't read CSS variables).
-const bg = "#0c0c0e";
-const text = "#f4f4f5";
-const muted = "#acacb5";
-const accent = "#2dd4bf";
+const bg = "#07060b";
+const text = "#f6f3ff";
+const muted = "#b9b1cf";
+const accent = "#f472b6";
 
 export default function OpengraphImage() {
   return new ImageResponse(

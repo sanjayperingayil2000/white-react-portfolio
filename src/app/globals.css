@@ -8,30 +8,36 @@
    ========================================================================== */
 
 :root {
+  /* Light: clean white with a sky-blue accent. */
   color-scheme: light;
 
-  --bg: #f7f7f8;
+  --bg: #f5faff;
   --surface: #ffffff;
-  --surface-glass: rgb(255 255 255 / 0.6);
-  --surface-glass-fallback: rgb(255 255 255 / 0.92);
-  --surface-glass-strong: rgb(255 255 255 / 0.8); /* scrolled navbar */
-  --border: #e2e2e6;
-  --border-glass: rgb(24 24 27 / 0.08);
-  --glass-highlight: rgb(255 255 255 / 0.9);
+  --surface-glass: rgb(255 255 255 / 0.7);
+  --surface-glass-fallback: rgb(255 255 255 / 0.95);
+  --surface-glass-strong: rgb(255 255 255 / 0.85); /* scrolled navbar */
+  --border: #d6e6f5;
+  --border-glass: rgb(2 132 199 / 0.14);
+  --glass-highlight: rgb(255 255 255 / 0.95);
 
-  --text: #18181b;
-  --text-muted: #52525b;
+  --text: #0b1b2e;
+  --text-muted: #46566b;
   --danger: #b42318; /* form errors only */
 
-  --accent: #0d6e66;
-  --accent-tint: #14b8a6;
+  /* --accent is used for text and small UI, so it stays AA on white (5.9:1). */
+  --accent: #0369a1;
+  --accent-2: #2563eb;
+  --accent-tint: #38bdf8;
   --accent-foreground: #ffffff;
-  --ring: #0d6e66;
+  --ring: #0284c7;
+  --gradient-brand: linear-gradient(120deg, #0369a1 0%, #0284c7 45%, #2563eb 100%);
+  --gradient-text: linear-gradient(120deg, #0284c7 0%, #0ea5e9 40%, #2563eb 100%);
+  --shadow-glow: 0 8px 24px rgb(2 132 199 / 0.28);
 
-  --blob-accent: var(--accent-tint);
-  --blob-neutral: #a1a1aa;
-  --blob-opacity: 0.18;
-  --grain-opacity: 0.035;
+  --blob-accent: #38bdf8;
+  --blob-neutral: #818cf8;
+  --blob-opacity: 0.3;
+  --grain-opacity: 0.03;
 
   --glass-blur: 16px;
   --glass-saturate: 180%;
@@ -49,38 +55,43 @@
 }
 
 .dark {
+  /* Dark: deep black with a pink → violet accent. */
   color-scheme: dark;
 
-  --bg: #0c0c0e;
-  --surface: #18181b;
-  --surface-glass: rgb(255 255 255 / 0.06);
-  --surface-glass-fallback: #1c1c20;
-  --surface-glass-strong: rgb(24 24 27 / 0.75);
-  --border: #3f3f46;
-  --border-glass: rgb(255 255 255 / 0.1);
+  --bg: #07060b;
+  --surface: #13101c;
+  --surface-glass: rgb(255 255 255 / 0.05);
+  --surface-glass-fallback: #15111f;
+  --surface-glass-strong: rgb(13 10 20 / 0.78);
+  --border: #2e2640;
+  --border-glass: rgb(236 72 153 / 0.16);
   --glass-highlight: rgb(255 255 255 / 0.08);
 
-  --text: #f4f4f5;
-  --text-muted: #acacb5;
+  --text: #f6f3ff;
+  --text-muted: #b9b1cf;
   --danger: #fda29b;
 
-  --accent: #2dd4bf;
-  --accent-tint: #0d6e66;
-  --accent-foreground: #0c0c0e;
-  --ring: #2dd4bf;
+  --accent: #f472b6;
+  --accent-2: #a78bfa;
+  --accent-tint: #ec4899;
+  --accent-foreground: #0b0712;
+  --ring: #f472b6;
+  --gradient-brand: linear-gradient(120deg, #f472b6 0%, #e879f9 50%, #a78bfa 100%);
+  --gradient-text: linear-gradient(120deg, #f472b6 0%, #e879f9 45%, #a78bfa 100%);
+  --shadow-glow: 0 8px 28px rgb(236 72 153 / 0.35);
 
-  --blob-accent: var(--accent);
-  --blob-neutral: #71717a;
-  --blob-opacity: 0.16;
+  --blob-accent: #ec4899;
+  --blob-neutral: #8b5cf6;
+  --blob-opacity: 0.22;
   --grain-opacity: 0.05;
 
   --glass-blur: 20px;
   --glass-saturate: 140%;
 
-  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.4);
-  --shadow-md: 0 1px 3px rgb(0 0 0 / 0.35), 0 4px 12px rgb(0 0 0 / 0.4);
-  --shadow-lg: 0 2px 6px rgb(0 0 0 / 0.3), 0 16px 40px rgb(0 0 0 / 0.5);
-  --shadow-glass: inset 0 1px 0 var(--glass-highlight), 0 8px 32px rgb(0 0 0 / 0.45);
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.5);
+  --shadow-md: 0 1px 3px rgb(0 0 0 / 0.4), 0 4px 12px rgb(0 0 0 / 0.5);
+  --shadow-lg: 0 2px 6px rgb(0 0 0 / 0.35), 0 16px 40px rgb(0 0 0 / 0.6);
+  --shadow-glass: inset 0 1px 0 var(--glass-highlight), 0 8px 32px rgb(0 0 0 / 0.5);
 }
 
 /* Map semantic tokens to Tailwind utilities (bg-bg, text-fg, text-muted, bg-accent …).
@@ -95,6 +106,7 @@
   --color-muted: var(--text-muted);
   --color-danger: var(--danger);
   --color-accent: var(--accent);
+  --color-accent-2: var(--accent-2);
   --color-accent-foreground: var(--accent-foreground);
   --color-border: var(--border);
   --color-border-glass: var(--border-glass);
@@ -125,10 +137,10 @@
   --radius-2xl: 2rem;
 
   /* Light values; .dark overrides them above. */
-  --shadow-sm: 0 1px 2px rgb(24 24 27 / 0.06);
-  --shadow-md: 0 1px 3px rgb(24 24 27 / 0.05), 0 4px 12px rgb(24 24 27 / 0.06);
-  --shadow-lg: 0 2px 6px rgb(24 24 27 / 0.04), 0 16px 40px rgb(24 24 27 / 0.08);
-  --shadow-glass: inset 0 1px 0 var(--glass-highlight), 0 8px 32px rgb(24 24 27 / 0.06);
+  --shadow-sm: 0 1px 2px rgb(11 27 46 / 0.06);
+  --shadow-md: 0 1px 3px rgb(11 27 46 / 0.05), 0 4px 12px rgb(2 132 199 / 0.08);
+  --shadow-lg: 0 2px 6px rgb(11 27 46 / 0.04), 0 16px 40px rgb(2 132 199 / 0.12);
+  --shadow-glass: inset 0 1px 0 var(--glass-highlight), 0 8px 32px rgb(2 132 199 / 0.08);
 
   --ease-standard: cubic-bezier(0.2, 0, 0, 1);
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
@@ -196,6 +208,24 @@
    ========================================================================== */
 
 @layer components {
+  /* Brand gradient: sky blue in light, pink → violet in dark. */
+  .bg-brand {
+    background-color: var(--accent);
+    background-image: var(--gradient-brand);
+  }
+
+  .text-brand {
+    color: var(--accent);
+    background-image: var(--gradient-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
   .glass,
   .glass-nav,
   .glass-sm {
@@ -381,6 +411,11 @@ html:has(dialog[open]) {
 
   .dark {
     --glass-blur: 12px;
+  }
+
+  /* Fewer, fainter orbs on phones would look flat; keep them but softer. */
+  :root {
+    --blob-opacity: 0.24;
   }
 }
 

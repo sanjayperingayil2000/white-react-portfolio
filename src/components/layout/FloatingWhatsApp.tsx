@@ -9,7 +9,7 @@ export function FloatingWhatsApp() {
     <a
       href={primaryWhatsapp.whatsappHref}
       aria-label={contactCopy.chatOnWhatsapp}
-      className="fixed right-(--gutter) bottom-6 z-40 grid size-12 place-items-center rounded-full bg-accent text-accent-foreground shadow-lg lg:hidden"
+      className="fixed right-(--gutter) bottom-6 z-40 grid size-12 place-items-center rounded-full bg-brand shadow-glow text-accent-foreground shadow-lg lg:hidden"
       {...externalLinkProps}
     >
       <BrandIcon name="whatsapp" className="size-6" />

@@ -9,7 +9,7 @@ const base =
   "motion-safe:active:scale-[0.98]";
 
 const variants: Record<Variant, string> = {
-  primary: "bg-accent text-accent-foreground shadow-sm hover:opacity-90",
+  primary: "bg-brand text-accent-foreground shadow-glow hover:opacity-90",
   glass: "glass-sm text-fg hover:shadow-md",
   ghost: "text-fg hover:bg-fg/5",
 };

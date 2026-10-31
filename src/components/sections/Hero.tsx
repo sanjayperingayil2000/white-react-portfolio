@@ -21,7 +21,7 @@ export function Hero() {
         {/* No reveal above the fold (keeps LCP immediate); the two columns drift at different rates. */}
         <Parallax preset="heroText">
           <p className="glass-sm inline-flex items-center gap-2 px-3 py-1.5 text-xs font-medium text-muted">
-            <span aria-hidden="true" className="size-1.5 rounded-full bg-accent" />
+            <span aria-hidden="true" className="size-1.5 rounded-full bg-brand" />
             {profile.availability} · {profile.location}
           </p>
 
@@ -29,7 +29,7 @@ export function Hero() {
             id="hero-title"
             className="mt-6 flex items-end gap-[0.12em] font-display text-hero leading-[0.9] tracking-[-0.03em] text-fg"
           >
-            {profile.shortName}
+            <span className="text-brand pb-[0.08em]">{profile.shortName}</span>
             <Image
               src="/images/hand.svg"
               alt=""
@@ -70,6 +70,8 @@ export function Hero() {
         </Parallax>
 
         <Parallax preset="heroImage" className="relative mx-auto w-full max-w-[440px]">
+          {/* Soft brand glow behind the portrait. */}
+          <div aria-hidden="true" className="bg-brand absolute inset-6 -z-10 rounded-full opacity-40 blur-3xl" />
           <div className="glass hero-morph overflow-hidden p-2">
             <Image
               src={profile.heroImage.src}

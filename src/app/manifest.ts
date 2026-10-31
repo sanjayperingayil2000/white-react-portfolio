@@ -10,8 +10,8 @@ export default function manifest(): MetadataRoute.Manifest {
     start_url: "/",
     display: "browser",
     // Light-theme background; the dark theme is applied by the page itself.
-    background_color: "#f7f7f8",
-    theme_color: "#0d6e66",
+    background_color: "#f5faff",
+    theme_color: "#0284c7",
     icons: [
       { src: "/icons/icon-192.png", sizes: "192x192", type: "image/png" },
       { src: "/icons/icon-512.png", sizes: "512x512", type: "image/png" },
