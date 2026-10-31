@@ -6,8 +6,9 @@ import { footerSocials } from "@/content/socials";
 import { externalLinkProps } from "@/lib/utils";
 
 export function Footer() {
+  // Phones: extra bottom room so the floating scroll-to-top and WhatsApp buttons never cover the footer.
   return (
-    <footer className="pt-(--space-section) pb-10">
+    <footer className="pt-(--space-section) pb-36 sm:pb-10">
       <Container>
         <div className="glass flex flex-col items-center gap-6 px-6 py-10 text-center">
           <p className="font-display text-3xl text-fg">{footer.title}</p>
