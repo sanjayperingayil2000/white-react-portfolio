@@ -13,8 +13,8 @@ const RAYS = Array.from({ length: 8 }, (_, i) => {
 });
 
 /**
- * Light/dark toggle. Follows the OS by default; clicking switches to the opposite
- * appearance, and choosing the one that matches the OS goes back to "system".
+ * Light/dark toggle. Follows the OS until the visitor clicks; every click then flips
+ * to the opposite theme and stores that explicit choice.
  */
 export function ThemeToggle({ className }: { className?: string }) {
   const { resolvedTheme, setTheme } = useTheme();
@@ -26,8 +26,7 @@ export function ThemeToggle({ className }: { className?: string }) {
   function toggle(event: React.MouseEvent<HTMLButtonElement>) {
     const root = document.documentElement;
     const toDark = !root.classList.contains("dark");
-    const osDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    const next = toDark === osDark ? "system" : toDark ? "dark" : "light";
+    const next = toDark ? "dark" : "light";
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     if (!document.startViewTransition || reduceMotion) {
