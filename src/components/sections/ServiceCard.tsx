@@ -42,7 +42,7 @@ export function ServiceCard({ service }: { service: Service }) {
       >
         <div className="p-6 sm:p-8">
           <div className="flex items-start justify-between gap-4">
-            <h3 id={titleId} className="font-display text-2xl leading-tight text-fg">
+            <h3 id={titleId} className="font-display text-xl leading-tight font-semibold text-fg">
               {service.modalTitle}
             </h3>
             <button

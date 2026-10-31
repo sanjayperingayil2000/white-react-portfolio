@@ -65,7 +65,7 @@ export function FeaturedProjectCard({ project }: { project: FeaturedProject }) {
           <ProjectImage project={project} sizes="(min-width: 1280px) 440px, (min-width: 1024px) 40vw, 100vw" />
           <div>
             <p className="text-xs font-medium tracking-[0.08em] text-muted uppercase">{project.context}</p>
-            <h3 className="mt-2 font-display text-3xl leading-[1.1] tracking-[-0.01em] text-fg">{project.title}</h3>
+            <h3 className="mt-2 font-display text-2xl leading-[1.2] font-bold tracking-[-0.015em] text-fg">{project.title}</h3>
           </div>
           <StackBadges stack={project.techStack} />
           <ProjectLinks project={project} />

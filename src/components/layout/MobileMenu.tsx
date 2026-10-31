@@ -69,7 +69,7 @@ export function MobileMenu({ items, active }: MobileMenuProps) {
             <a
               href={nav.logo.href}
               onClick={closeForLink}
-              className="inline-flex min-h-11 items-center font-display text-2xl leading-none"
+              className="inline-flex min-h-11 items-center font-display text-base leading-none font-bold tracking-tight"
             >
               {nav.logo.label}
             </a>
@@ -97,7 +97,7 @@ export function MobileMenu({ items, active }: MobileMenuProps) {
                     onClick={closeForLink}
                     aria-current={isActive ? "location" : undefined}
                     className={cn(
-                      "flex min-h-13 items-center gap-4 rounded-lg px-5 font-display text-2xl hover:bg-fg/5",
+                      "flex min-h-13 items-center gap-4 rounded-lg px-5 font-display text-xl font-semibold hover:bg-fg/5",
                       isActive ? "text-accent" : "text-fg",
                     )}
                   >

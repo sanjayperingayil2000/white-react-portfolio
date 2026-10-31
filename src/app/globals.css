@@ -112,7 +112,8 @@
   --color-border-glass: var(--border-glass);
   --color-ring: var(--ring);
 
-  --font-display: var(--font-instrument-serif), ui-serif, Georgia, serif;
+  /* One standard sans family for headings and body; headings differ by weight. */
+  --font-display: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
   --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
 }
 
@@ -127,8 +128,9 @@
   --text-3xl: clamp(1.75rem, 1.4565rem + 1.3043vw, 2.5rem);
   --text-4xl: clamp(2.125rem, 1.587rem + 2.3913vw, 3.5rem);
   --text-5xl: clamp(2.5rem, 1.6196rem + 3.913vw, 4.75rem);
-  /* Hero name only (64 → 152px). */
-  --text-hero: clamp(4rem, 1.848rem + 9.565vw, 9.5rem);
+  /* Hero name only (32px at 320 → 80px at 1280): sized so the longest word plus the
+     wave emoji fits on one line on the smallest phones. */
+  --text-hero: clamp(2rem, 1rem + 5vw, 5rem);
 
   --radius-sm: 0.5rem;
   --radius-md: 0.75rem;

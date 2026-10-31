@@ -21,7 +21,7 @@ export function Navbar() {
         data-scrolled={scrolled}
         className="glass-nav mx-auto flex h-14 max-w-(--container) items-center justify-between gap-4 pr-2 pl-5"
       >
-        <a href={nav.logo.href} className="inline-flex min-h-11 items-center font-display text-2xl leading-none text-fg">
+        <a href={nav.logo.href} className="inline-flex min-h-11 items-center font-display text-base leading-none font-bold tracking-tight text-fg sm:text-lg">
           {nav.logo.label}
         </a>
 

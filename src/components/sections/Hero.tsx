@@ -14,6 +14,9 @@ import { externalLinkProps } from "@/lib/utils";
 
 export function Hero() {
   const currentRole = experience.find((job) => job.end === null);
+  const nameParts = profile.fullName.split(" ");
+  const lastName = nameParts.pop();
+  const firstNames = nameParts.join(" ");
 
   return (
     <section id={SECTION_IDS.home} aria-labelledby="hero-title" className="pt-32 pb-(--space-section) sm:pt-40">
@@ -27,20 +30,24 @@ export function Hero() {
 
           <h1
             id="hero-title"
-            className="mt-6 flex items-end gap-[0.12em] font-display text-hero leading-[0.9] tracking-[-0.03em] text-fg"
+            className="mt-6 font-display text-hero leading-[1.05] font-extrabold tracking-[-0.03em] text-balance text-fg"
           >
-            <span className="text-brand pb-[0.08em]">{profile.shortName}</span>
-            <Image
-              src="/images/hand.svg"
-              alt=""
-              width={48}
-              height={48}
-              unoptimized
-              className="mb-[0.14em] size-[0.36em]"
-            />
+            {/* The last word and the wave stay together so the emoji never wraps alone. */}
+            <span className="text-brand">{firstNames} </span>
+            <span className="whitespace-nowrap">
+              <span className="text-brand">{lastName}</span>{" "}
+              <Image
+                src="/images/hand.svg"
+                alt=""
+                width={48}
+                height={48}
+                unoptimized
+                className="inline-block size-[0.8em] align-[-0.1em]"
+              />
+            </span>
           </h1>
 
-          <p className="mt-6 font-display text-3xl leading-tight text-fg italic">{profile.headline[0]}</p>
+          <p className="mt-5 font-display text-2xl leading-tight font-semibold text-fg">{profile.headline[0]}</p>
           <p className="mt-2 text-base font-medium text-muted">{profile.headline.slice(1).join(" · ")}</p>
 
           <p className="mt-6 max-w-[56ch] text-base text-muted">{profile.heroDescription}</p>

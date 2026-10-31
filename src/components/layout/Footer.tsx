@@ -11,7 +11,7 @@ export function Footer() {
     <footer className="pt-(--space-section) pb-36 sm:pb-10">
       <Container>
         <div className="glass flex flex-col items-center gap-6 px-6 py-10 text-center">
-          <p className="font-display text-3xl text-fg">{footer.title}</p>
+          <p className="font-display text-2xl font-bold tracking-tight text-fg">{footer.title}</p>
 
           <ul className="flex flex-wrap justify-center gap-x-5">
             {footer.links.map((link) => (

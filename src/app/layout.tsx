@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Instrument_Serif } from "next/font/google";
+import { Geist } from "next/font/google";
 import { BackgroundOrbs } from "@/components/layout/BackgroundOrbs";
 import { FloatingWhatsApp } from "@/components/layout/FloatingWhatsApp";
 import { Footer } from "@/components/layout/Footer";
@@ -10,13 +10,6 @@ import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { profile } from "@/content/profile";
 import { labels, site } from "@/content/site";
 import "./globals.css";
-
-const display = Instrument_Serif({
-  weight: "400",
-  style: ["normal", "italic"],
-  subsets: ["latin"],
-  variable: "--font-instrument-serif",
-});
 
 const body = Geist({
   subsets: ["latin"],
@@ -62,7 +55,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang={site.locale}
       data-scroll-behavior="smooth"
       suppressHydrationWarning
-      className={`${display.variable} ${body.variable}`}
+      className={body.variable}
     >
       {/* relative: the page-length orb layer is positioned against the body. */}
       <body className="relative min-h-dvh">

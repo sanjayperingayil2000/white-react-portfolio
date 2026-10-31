@@ -1,4 +1,5 @@
 import { hash, SECTION_IDS } from "@/lib/constants";
+import { profile } from "@/content/profile";
 import type { FormField, Link, NavItem, ProjectCategory, SectionCopy } from "@/types/content";
 
 /**
@@ -21,7 +22,7 @@ export const site = {
 } as const;
 
 export const nav: { logo: Link; items: NavItem[] } = {
-  logo: { label: "Sanjay", href: hash(SECTION_IDS.home) },
+  logo: { label: profile.fullName, href: hash(SECTION_IDS.home) },
   // Page order. The desktop bar keeps 7 links (Home is the logo; Services is reachable
   // from the mobile menu and by scrolling); the mobile menu shows all 9 as a 3×3 grid.
   items: [
